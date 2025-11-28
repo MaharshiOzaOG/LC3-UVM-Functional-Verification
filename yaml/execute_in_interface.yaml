@@ -68,67 +68,80 @@ uvmf:
       reset_assertion_level: 'True'
       transaction_constraints: []
       transaction_vars:
-      -iscompare: 'False'
-        isrand: 'False'
-        name: enable_execute
-        type: bit
-        unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: E_control
         type: bit [5:0]
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: IR
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: npc_in
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: bypass_alu_1
         type: bit
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: bypass_alu_2
         type: bit
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: bypass_mem_1
         type: bit
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: bypass_mem_2
         type: bit
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: VSR1
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: VSR2
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: W_Control_in
         type: bit [1:0]
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: Mem_Control_in
         type: bit
         unpacked_dimension: ''
-      -iscompare: 'False'
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: enable_execute
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
         isrand: 'False'
         name: Mem_Bypass_Val
         type: bit [15:0]
