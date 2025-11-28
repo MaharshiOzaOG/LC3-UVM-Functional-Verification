@@ -1,0 +1,74 @@
+uvmf:
+  interfaces:
+    mem_access_in:
+      clock: clk
+      reset: rst
+      reset_assertion_level: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      config_constraints: []
+      config_vars: []
+      hdl_typedefs: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - name: mem_state
+        dir: output
+        width: '2'
+        reset_value: '''b0'
+      - name: m_control
+        dir: output
+        width: '1'
+        reset_value: '''b0'
+      - name: m_addr
+        dir: output
+        width: '16'
+        reset_value: '''b0'
+      - name: m_data
+        dir: output
+        width: '16'
+        reset_value: '''b0'
+      - name: dmem_dout
+        dir: output
+        width: '16'
+        reset_value: '''b0'
+      transaction_constraints: []
+      transaction_vars:
+      - name: mem_state
+        type: bit [1:0]
+        comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        unpacked_dimension: ''
+      - name: m_control
+        type: bit
+        comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        unpacked_dimension: ''
+      - name: m_addr
+        comment: ''
+        type: bit [15:0]
+        iscompare: 'False'
+        isrand: 'False'
+        unpacked_dimension: ''
+      - name: m_data
+        comment: ''
+        type: bit [15:0]
+        iscompare: 'False'
+        isrand: 'False'
+        unpacked_dimension: ''
+      - name: dmem_dout
+        comment: ''
+        type: bit [15:0]
+        iscompare: 'False'
+        isrand: 'False'
+        unpacked_dimension: ''
+      use_dpi_link: 'False'
+
+
+# mem_access_in_interface.yaml mem_access_out_interface.yaml mem_access_util_comp_mem_access_predictor.yaml mem_access_environment.yaml
