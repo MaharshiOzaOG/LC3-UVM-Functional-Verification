@@ -1,0 +1,9 @@
+src:
+  - data_defs.v
+  - Fetch.v
+  - Decode_Pipelined.v
+  - Execute.v
+  - Mem_Access.v
+  - WriteBack.v
+  - Controller_Pipeline.v
+  - TopLevelLC3.v
