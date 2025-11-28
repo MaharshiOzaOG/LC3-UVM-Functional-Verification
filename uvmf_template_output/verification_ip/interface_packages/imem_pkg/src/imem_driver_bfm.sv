@@ -158,7 +158,14 @@ end
        instrmem_rd_o <= 1'b0;
        // Bi-directional signals
  
-     end    
+     end
+     
+  always @(posedge clock_i) begin
+    wait( reset_i === 0 );
+    if(instrmem_rd_i === 'x) complete_instr_o <= 0;   
+    else                     complete_instr_o <= 1;
+    
+  end
 // pragma uvmf custom reset_condition_and_response end
 
   // pragma uvmf custom interface_item_additional begin
@@ -347,20 +354,24 @@ bit first_transfer=1;
        //      Instr_dout_o <= imem_responder_struct.xyz;  //    [15:0] 
        //      complete_instr_o <= imem_responder_struct.xyz;  //     
        //    Responder inout signals
-    
-  @(posedge clock_i);
-  if (!first_transfer) begin
-    // Perform transfer response here.   
-    // Reply using data recieved in the imem_responder_struct.
-    @(posedge clock_i);
-    // Reply using data recieved in the transaction handle.
-    @(posedge clock_i);
-  end
-    // Wait for next transfer then gather info from intiator about the transfer.
-    // Place the data into the imem_initiator_struct.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    first_transfer = 0;
+    wait( reset_i === 0 );
+    do begin
+      @(posedge clock_i);
+    end while (instrmem_rd_i === 1'b0);
+    Instr_dout_o <= imem_responder_struct.Instr_dout; 
+  // @(posedge clock_i);
+  // if (!first_transfer) begin
+  //   // Perform transfer response here.   
+  //   // Reply using data recieved in the imem_responder_struct.
+  //   @(posedge clock_i);
+  //   // Reply using data recieved in the transaction handle.
+  //   @(posedge clock_i);
+  // end
+  //   // Wait for next transfer then gather info from intiator about the transfer.
+  //   // Place the data into the imem_initiator_struct.
+  //   @(posedge clock_i);
+  //   @(posedge clock_i);
+  //   first_transfer = 0;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end
 

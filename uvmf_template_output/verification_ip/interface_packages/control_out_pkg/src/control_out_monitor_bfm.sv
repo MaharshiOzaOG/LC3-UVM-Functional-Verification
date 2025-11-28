@@ -111,7 +111,7 @@ end
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
     wait ( rst_i === 0 ) ;                                                              
-    @(posedge clk_i) ;                                                                    
+    // @(posedge clk_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -199,10 +199,22 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clk_i);
-    @(posedge clk_i);
-    @(posedge clk_i);
-    @(posedge clk_i);
+    // @(posedge clk_i);
+    // @(posedge clk_i);
+    // @(posedge clk_i);
+    // @(posedge clk_i);
+    do_wait_for_reset();
+    control_out_monitor_struct.enable_updatePC = enable_updatePC_i; 
+control_out_monitor_struct.enable_fetch = enable_fetch_i;  //
+control_out_monitor_struct.enable_decode = enable_decode_i;  //
+control_out_monitor_struct.enable_execute = enable_execute_i;  
+control_out_monitor_struct.enable_writeback = enable_writeback_i;
+control_out_monitor_struct.br_taken = br_taken_i;  //    
+control_out_monitor_struct.bypass_alu_1 = bypass_alu_1_i;  //
+control_out_monitor_struct.bypass_alu_2 = bypass_alu_2_i;  //
+control_out_monitor_struct.bypass_mem_1 = bypass_mem_1_i;  //
+control_out_monitor_struct.bypass_mem_2 = bypass_mem_2_i;  //
+control_out_monitor_struct.mem_state = mem_state_i;  //   
     // pragma uvmf custom do_monitor end
   endtask         
   
