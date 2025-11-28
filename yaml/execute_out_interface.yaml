@@ -60,52 +60,62 @@ uvmf:
       reset_assertion_level: 'True'
       transaction_constraints: []
       transaction_vars:
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: W_Control_out
         type: bit [1:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: Mem_Control_out
         type: bit
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: aluout
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: pcout
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: dr
         type: bit [2:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: sr1
         type: bit [2:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: sr2
         type: bit [2:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: IR_Exec
         type: bit [15:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: NZP
         type: bit [2:0]
         unpacked_dimension: ''
-      -iscompare: 'True'
+      - comment: ''
+        iscompare: 'True'
         isrand: 'False'
         name: M_Data
         type: bit [15:0]
