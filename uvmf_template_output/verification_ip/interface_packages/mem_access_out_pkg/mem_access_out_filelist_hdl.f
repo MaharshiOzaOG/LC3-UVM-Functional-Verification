@@ -1,1 +1,0 @@
-$UVMF_VIP_LIBRARY_HOME/interface_packages/mem_access_out_pkg/mem_access_out_pkg_hdl.sv
