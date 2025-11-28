@@ -3,10 +3,10 @@ uvmf:
     control:
       agents:
       - initiator_responder: INITIATOR
-        name: control_in_agent
+        name: agent_in
         type: control_in
       - initiator_responder: INITIATOR
-        name: control_out_agent
+        name: agent_out
         type: control_out
       analysis_components:
       - name: control_pred
@@ -29,12 +29,12 @@ uvmf:
         trans_type: control_out_transaction
       subenvs: []
       tlm_connections:
-      - driver: control_in_agent.monitored_ap
+      - driver: agent_in.monitored_ap
         receiver: control_pred.control_in_agent_ae
         validate: 'True'
       - driver: control_pred.control_sb_ap
         receiver: control_sb.expected_analysis_export
         validate: 'True'
-      - driver: control_out_agent.monitored_ap
+      - driver: agent_out.monitored_ap
         receiver: control_sb.actual_analysis_export
         validate: 'True'
