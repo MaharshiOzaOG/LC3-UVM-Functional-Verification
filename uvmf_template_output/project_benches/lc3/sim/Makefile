@@ -194,9 +194,11 @@ BUILD_TGT = $(BUILD_TGT_$(USE_VINFO))
 
 comp_hvl : comp_hvl_core
 
+lc3_pred_pkg: 
+	vlog -sv $(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv
 
 comp_hvl_core :   \
-	 comp_fetch_in_pkg  comp_fetch_out_pkg  comp_decode_in_pkg  comp_decode_out_pkg  comp_execute_in_pkg  comp_execute_out_pkg  comp_mem_access_in_pkg  comp_mem_access_out_pkg  comp_control_in_pkg  comp_control_out_pkg  comp_writeback_in_pkg  comp_writeback_out_pkg  comp_imem_pkg  comp_data_mem_pkg  \
+	lc3_pred_pkg comp_fetch_in_pkg  comp_fetch_out_pkg  comp_decode_in_pkg  comp_decode_out_pkg  comp_execute_in_pkg  comp_execute_out_pkg  comp_mem_access_in_pkg  comp_mem_access_out_pkg  comp_control_in_pkg  comp_control_out_pkg  comp_writeback_in_pkg  comp_writeback_out_pkg  comp_imem_pkg  comp_data_mem_pkg  \
 	comp_lc3_env_pkg \
 	comp_lc3_parameters_pkg comp_lc3_sequence_pkg comp_lc3_tests_pkg 
 
