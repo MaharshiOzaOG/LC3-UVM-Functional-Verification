@@ -107,7 +107,7 @@ end
   
   //******************************************************************                         
   task wait_for_reset();// pragma tbx xtf  
-    @(posedge clock_i) ;                                                                    
+    // @(posedge clock_i) ;                                                                    
     do_wait_for_reset();                                                                   
   endtask                                                                                   
 
@@ -129,7 +129,8 @@ end
 
   //******************************************************************                         
   event go;                                                                                 
-  function void start_monitoring();// pragma tbx xtf    
+  function void start_monitoring();// pragma tbx xtf   
+    wait_for_reset(); 
     -> go;
   endfunction                                                                               
   
@@ -165,40 +166,6 @@ end
             
   task do_monitor(output execute_in_monitor_s execute_in_monitor_struct);
     //
-    // Available struct members:
-    //     //    execute_in_monitor_struct.E_control
-    //     //    execute_in_monitor_struct.IR
-    //     //    execute_in_monitor_struct.npc_in
-    //     //    execute_in_monitor_struct.bypass_alu_1
-    //     //    execute_in_monitor_struct.bypass_alu_2
-    //     //    execute_in_monitor_struct.bypass_mem_1
-    //     //    execute_in_monitor_struct.bypass_mem_2
-    //     //    execute_in_monitor_struct.VSR1
-    //     //    execute_in_monitor_struct.VSR2
-    //     //    execute_in_monitor_struct.W_Control_in
-    //     //    execute_in_monitor_struct.Mem_Control_in
-    //     //    execute_in_monitor_struct.enable_execute
-    //     //    execute_in_monitor_struct.Mem_Bypass_Val
-    //     //
-    // Reference code;
-    //    How to wait for signal value
-    //      while (control_signal === 1'b1) @(posedge clock_i);
-    //    
-    //    How to assign a struct member, named xyz, from a signal.   
-    //    All available input signals listed.
-    //      execute_in_monitor_struct.xyz = E_control_i;  //    [5:0] 
-    //      execute_in_monitor_struct.xyz = IR_i;  //    [15:0] 
-    //      execute_in_monitor_struct.xyz = npc_in_i;  //    [15:0] 
-    //      execute_in_monitor_struct.xyz = bypass_alu_1_i;  //     
-    //      execute_in_monitor_struct.xyz = bypass_alu_2_i;  //     
-    //      execute_in_monitor_struct.xyz = bypass_mem_1_i;  //     
-    //      execute_in_monitor_struct.xyz = bypass_mem_2_i;  //     
-    //      execute_in_monitor_struct.xyz = VSR1_i;  //    [15:0] 
-    //      execute_in_monitor_struct.xyz = VSR2_i;  //    [15:0] 
-    //      execute_in_monitor_struct.xyz = W_Control_in_i;  //    [1:0] 
-    //      execute_in_monitor_struct.xyz = Mem_Control_in_i;  //     
-    //      execute_in_monitor_struct.xyz = enable_execute_i;  //     
-    //      execute_in_monitor_struct.xyz = Mem_Bypass_Val_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
     // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
     // below are examples of how to capture signal values and assign them to 
@@ -207,10 +174,23 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
+
+    while(enable_execute_i != 1'b1)
     @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    execute_in_monitor_struct.E_control = E_control_i;
+    execute_in_monitor_struct.IR = IR_i;
+    execute_in_monitor_struct.npc_in = npc_in_i;
+    execute_in_monitor_struct.bypass_alu_1 = bypass_alu_1_i;
+    execute_in_monitor_struct.bypass_alu_2 = bypass_alu_2_i;
+    execute_in_monitor_struct.bypass_mem_1 = bypass_mem_1_i;
+    execute_in_monitor_struct.bypass_mem_2 = bypass_mem_2_i;
+    execute_in_monitor_struct.VSR1 = VSR1_i;
+    execute_in_monitor_struct.VSR2 = VSR2_i;
+    execute_in_monitor_struct.W_Control_in = W_Control_in_i;
+    execute_in_monitor_struct.Mem_Control_in = Mem_Control_in_i;
+    execute_in_monitor_struct.enable_execute = enable_execute_i;
+    execute_in_monitor_struct.Mem_Bypass_Val = Mem_Bypass_Val_i;
+  
     // pragma uvmf custom do_monitor end
   endtask         
   
