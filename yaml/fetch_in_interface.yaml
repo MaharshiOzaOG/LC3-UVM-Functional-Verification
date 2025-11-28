@@ -1,0 +1,62 @@
+uvmf:
+  interfaces:
+    fetch_in:
+      clock: clk
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'False'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      # - name: alu_in_op_t
+      #   type: enum bit[2:0] { add_op = 3'b001, and_op = 3'b010, xor_op = 3'b011, mul_op = 3'b100}
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      # - name: FETCH_IN_OP_WIDTH
+      #   type: int
+      #   value: '8'
+      ports:
+      - dir: output
+        name: enable_updatePC
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: enable_fetch
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: taddr
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: br_taken
+        reset_value: '''b0'
+        width: '1'
+      reset: rst
+      reset_assertion_level: 'True'
+      transaction_constraints: []
+      # - name: valid_op_c
+      #   value: '{ op inside {add_op, and_op, xor_op, mul_op}; }'
+      transaction_vars:
+      - iscompare: 'False'
+        isrand: 'False'
+        name: enable_updatePC
+        type: logic
+        unpacked_dimension: ''
+      - iscompare: 'False'
+        isrand: 'False'
+        name: enable_fetch
+        type: logic
+        unpacked_dimension: ''
+      - iscompare: 'False'
+        isrand: 'False'
+        name: taddr
+        type: logic [15:0]
+        unpacked_dimension: ''
+      - iscompare: 'False'
+        isrand: 'False'
+        name: br_taken
+        type: logic
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

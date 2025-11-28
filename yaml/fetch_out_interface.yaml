@@ -1,0 +1,76 @@
+uvmf:
+  interfaces:
+    fetch_out:
+      clock: clk
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'False'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      # - name: alu_in_op_t
+      #   type: enum bit[2:0] { add_op = 3'b001, and_op = 3'b010, xor_op = 3'b011, mul_op = 3'b100}
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      # - name: FETCH_IN_OP_WIDTH
+      #   type: int
+      #   value: '8'
+      ports:
+      # - dir: output
+      #   name: npc
+      #   reset_value: '''h3001'
+      #   width: '16'
+      # - dir: output
+      #   name: pc
+      #   reset_value: '''h3000'
+      #   width: '16'
+      # - dir: output
+      #   name: instrmem_rd
+      #   reset_value: '''b0'
+      #   width: '1'
+      - dir: input
+        name: npc
+        reset_value: '''h3001'
+        width: '16'
+      - dir: input
+        name: pc
+        reset_value: '''h3000'
+        width: '16'
+      - dir: input
+        name: instrmem_rd
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: enable_fetch
+        reset_value: '''b0'
+        width: '1'
+      # - dir: input
+      #   name: br_taken
+      #   reset_value: '''b0'
+      #   width: 1
+      reset: rst
+      reset_assertion_level: 'True'
+      response_info:
+        data: []
+        operation: 1'b1
+      # transaction_constraints:
+      # - name: valid_op_c
+      #   value: '{ op inside {add_op, and_op, xor_op, mul_op}; }'
+      transaction_vars:
+      - iscompare: 'True'
+        isrand: 'False'
+        name: npc
+        type: logic [15:0]
+        unpacked_dimension: ''
+      - iscompare: 'True'
+        isrand: 'False'
+        name: pc
+        type: logic [15:0]
+        unpacked_dimension: ''
+      - iscompare: 'True'
+        isrand: 'False'
+        name: instrmem_rd
+        type: logic
+        unpacked_dimension: ''
+      use_dpi_link: 'False'
