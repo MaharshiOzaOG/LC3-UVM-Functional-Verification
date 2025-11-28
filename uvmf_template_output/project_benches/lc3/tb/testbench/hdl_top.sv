@@ -61,62 +61,155 @@ import uvmf_base_pkg_hdl::*;
   // The driver, driver_bfm, drives transactions onto the bus, _if.
   fetch_in_if  fetch_env_agent_in_bus(
      // pragma uvmf custom fetch_env_agent_in_bus_connections begin
-     .clk(clk), .rst(rst)
+     .clk(clk), 
+     .rst(rst),
+     .enable_updatePC(dut.enable_updatePC),
+     .enable_fetch(dut.enable_fetch),
+     .taddr(dut.taddr),
+     .br_taken(dut.br_taken)
      // pragma uvmf custom fetch_env_agent_in_bus_connections end
      );
   fetch_out_if  fetch_env_agent_out_bus(
      // pragma uvmf custom fetch_env_agent_out_bus_connections begin
-     .clk(clk), .rst(rst)
+     .clk(clk), 
+     .rst(rst),
+     .npc(dut.npc_out_fetch),
+     .pc(dut.pc),
+     .instrmem_rd(dut.instrmem_rd),
+     .enable_fetch(dut.enable_fetch)
      // pragma uvmf custom fetch_env_agent_out_bus_connections end
      );
   decode_in_if  decode_env_agent_in_bus(
      // pragma uvmf custom decode_env_agent_in_bus_connections begin
-     .clock(clk), .reset(rst)
+     .clock(clk), 
+     .reset(rst),
+     .enable_decode(dut.enable_decode),
+     .instr_dout(dut.Instr_dout),
+     .npc_in(dut.npc_out_fetch)
      // pragma uvmf custom decode_env_agent_in_bus_connections end
      );
   decode_out_if  decode_env_agent_out_bus(
      // pragma uvmf custom decode_env_agent_out_bus_connections begin
-     .clock(clk), .reset(rst)
+     .clock(clk), 
+     .reset(rst),
+     .IR(dut.IR),
+     .E_control(dut.E_Control),
+     .npc_out(dut.npc_out_dec),
+     .Mem_control(dut.Mem_Control),
+     .W_control(dut.W_Control),
+   // TODO://   .en_decode(delayed_en)
      // pragma uvmf custom decode_env_agent_out_bus_connections end
      );
   execute_in_if  execute_env_agent_in_bus(
      // pragma uvmf custom execute_env_agent_in_bus_connections begin
-     .clock(clk), .reset(rst)
+     .clock(clk), 
+     .reset(rst),
+     .E_control(dut.E_Control),
+     .IR(dut.IR),
+     .npc_in(dut.npc_out_dec),
+     .bypass_alu_1(dut.bypass_alu_1),
+     .bypass_alu_2(dut.bypass_alu_2),
+     .bypass_mem_1(dut.bypass_mem_1),
+     .bypass_mem_2(dut.bypass_mem_2),
+     .VSR1(dut.VSR1),
+     .VSR2(dut.VSR2),
+     .W_Control_in(dut.W_Control),
+     .Mem_Control_in(dut.Mem_Control),
+     .enable_execute(dut.enable_execute),
+     .Mem_Bypass_Val(dut.memout)
      // pragma uvmf custom execute_env_agent_in_bus_connections end
      );
   execute_out_if  execute_env_agent_out_bus(
      // pragma uvmf custom execute_env_agent_out_bus_connections begin
-     .clock(clk), .reset(rst)
+     .clock(clk), 
+     .reset(rst),
+     .W_Control_out(dut.W_Control_out),
+     .Mem_Control_out(dut.Mem_Control_out),
+     .aluout(dut.aluout),
+     .pcout(dut.pcout),
+     .dr(dut.dr),
+     .sr1(dut.sr1),
+     .sr2(dut.sr2),
+     .IR_Exec(dut.IR_Exec),
+     .NZP(dut.NZP),
+     .M_Data(dut.M_Data),
+     .enable_execute(dut.enable_execute)
      // pragma uvmf custom execute_env_agent_out_bus_connections end
      );
   mem_access_in_if  mem_access_env_agent_in_bus(
      // pragma uvmf custom mem_access_env_agent_in_bus_connections begin
-     .clk(clk), .rst(rst)
+     .clk(clk), 
+     .rst(rst),
+     .mem_state(dut.mem_state),
+     .m_control(dut.Mem_Control_out),
+     .m_addr(dut.pcout),
+     .m_data(dut.M_Data),
+     .dmem_dout(dut.Data_dout)
      // pragma uvmf custom mem_access_env_agent_in_bus_connections end
      );
   mem_access_out_if  mem_access_env_agent_out_bus(
      // pragma uvmf custom mem_access_env_agent_out_bus_connections begin
-     .clk(clk), .rst(rst)
+     .clk(clk), 
+     .rst(rst),
+     .dmem_addr(dut.Data_addr),
+     .dmem_din(dut.Data_din),
+     .dmem_rd(dut.Data_rd),
+     .memout(dut.memout)
      // pragma uvmf custom mem_access_env_agent_out_bus_connections end
      );
   control_in_if  control_env_agent_in_bus(
      // pragma uvmf custom control_env_agent_in_bus_connections begin
-     .clk(clk), .rst(rst)
+     .clk(clk), 
+     .rst(rst),
+     .complete_data(dut.complete_data),
+     .complete_instr(dut.complete_instr),
+     .IR(dut.IR),
+     .NZP(dut.NZP),
+     .psr(dut.psr),
+     .IR_Exec(dut.IR_Exec),
+     .IMem_dout(dut.Instr_dout)
      // pragma uvmf custom control_env_agent_in_bus_connections end
      );
   control_out_if  control_env_agent_out_bus(
      // pragma uvmf custom control_env_agent_out_bus_connections begin
-     .clk(clk), .rst(rst)
+     .clk(clk), 
+     .rst(rst),
+     .enable_updatePC(dut.enable_updatePC),
+     .enable_fetch(dut.enable_fetch),
+     .enable_decode(dut.enable_decode),
+     .enable_execute(dut.enable_execute),
+     .enable_writeback(dut.enable_writeback),
+     .br_taken(dut.br_taken),
+     .bypass_alu_1(dut.bypass_alu_1),
+     .bypass_alu_2(dut.bypass_alu_2),
+     .bypass_mem_1(dut.bypass_mem_1),
+     .bypass_mem_2(dut.bypass_mem_2),
+     .mem_state(dut.mem_state)
      // pragma uvmf custom control_env_agent_out_bus_connections end
      );
   writeback_in_if  writeback_env_agent_in_bus(
      // pragma uvmf custom writeback_env_agent_in_bus_connections begin
-     .clock(clk), .reset(rst)
+     .clock(clk), 
+     .reset(rst),
+     .enable_writeback(dut.enable_writeback),
+     .aluout(dut.aluout),
+     .memout(dut.memout),
+     .sr1(dut.sr1),
+     .sr2(dut.sr2),
+     .dr(dut.dr),
+     .npc(dut.npc_out_dec),
+     .pcout(dut.pcout),
+     .W_control(dut.W_Control_out)
      // pragma uvmf custom writeback_env_agent_in_bus_connections end
      );
   writeback_out_if  writeback_env_agent_out_bus(
      // pragma uvmf custom writeback_env_agent_out_bus_connections begin
-     .clock(clk), .reset(rst)
+     .clock(clk), 
+     .reset(rst),
+     .enable_writeback(dut.enable_writeback),
+     .psr(dut.psr),
+     .VSR1(dut.VSR1),
+     .VSR2(dut.VSR2)
      // pragma uvmf custom writeback_env_agent_out_bus_connections end
      );
   imem_if  imem_agent_bus(
@@ -150,8 +243,23 @@ import uvmf_base_pkg_hdl::*;
   // UVMF_CHANGE_ME : Add DUT and connect to signals in _bus interfaces listed above
   // Instantiate your DUT here
   // These DUT's instantiated to show verilog and vhdl instantiation
-  verilog_dut         dut_verilog(   .clk(clk), .rst(rst), .in_signal(vhdl_to_verilog_signal), .out_signal(verilog_to_vhdl_signal));
-  vhdl_dut            dut_vhdl   (   .clk(clk), .rst(rst), .in_signal(verilog_to_vhdl_signal), .out_signal(vhdl_to_verilog_signal));
+//   verilog_dut         dut_verilog(   .clk(clk), .rst(rst), .in_signal(vhdl_to_verilog_signal), .out_signal(verilog_to_vhdl_signal));
+//   vhdl_dut            dut_vhdl   (   .clk(clk), .rst(rst), .in_signal(verilog_to_vhdl_signal), .out_signal(vhdl_to_verilog_signal));
+  LC3 dut (
+    .clock(clk),
+    .reset(rst),
+    // Instruction memory interface connections
+    .pc(imem_agent_bus.PC),
+    .instrmem_rd(imem_agent_bus.instrmem_rd),
+    .Instr_dout(imem_agent_bus.Instr_dout),
+    .complete_instr(imem_agent_bus.complete_instr),
+    // Data memory interface connections
+    .Data_addr(data_mem_agent_bus.Data_addr),
+    .complete_data(data_mem_agent_bus.complete_data),
+    .Data_din(data_mem_agent_bus.Data_din),
+    .Data_dout(data_mem_agent_bus.Data_dout),
+    .Data_rd(data_mem_agent_bus.Data_rd)
+  );
   // pragma uvmf custom dut_instantiation end
 
   initial begin      // tbx vif_binding_block 
