@@ -19,7 +19,7 @@ uvmf:
       existing_library_component: 'True'
       hvl_pkg_parameters: []
       imports:
-      - name: lc3_predictor_pkg
+      - name: lc3_prediction_pkg
       non_uvmf_components: []
       parameters: []
       qvip_memory_agents: []

@@ -17,7 +17,7 @@
 # This variable points to release code that is not user modified.
 # This variable allows for UVMF release directories to reside independent of project related verification IP and project bench directories.
 # This code below looks "upward" for directory starting with UVMF_* and returns first match for use with the release examples.
-export UVMF_HOME ?= ___PLEASE_SET_AN_ENVIRONMENT_VARIABLE_NAMED_UVMF_HOME_TO_POINT_TO_THE_UVMF_INSTALLATION___
+export UVMF_HOME ?= /mnt/apps/public/COE/mg_apps/questa2025.1_1/questasim/examples/UVM_Framework/UVMF_2023.4_2
 
 # pragma uvmf custom exports begin
 #
@@ -133,7 +133,8 @@ $(UVMF_PROJECT_DIR)/tb/tests/lc3_tests_pkg.sv
 # pragma uvmf custom dut_files begin
 # UVMF_CHANGE_ME : Reference Verilog DUT source.
 lc3_VERILOG_DUT ?=\
-$(UVMF_PROJECT_DIR)/rtl/verilog/verilog_dut.v
+$(UVMF_PROJECT_DIR)/rtl/verilog/*.v
+
 
 # UVMF_CHANGE_ME : Reference VHDL DUT source.
 lc3_VHDL_DUT ?=\
