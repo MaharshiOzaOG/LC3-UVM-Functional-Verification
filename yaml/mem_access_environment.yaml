@@ -28,13 +28,14 @@ uvmf:
         trans_type: mem_access_out_transaction
       subenvs: []
       tlm_connections:
-      - driver: mem_access_in_agent.monitored_ap
+      - driver: agent_in.monitored_ap
         receiver: mem_access_pred.analysis_export
         validate: 'True'
-      - driver: mem_access_pred.predict_ap
+      - driver: agent_out.predict_ap
         receiver: mem_access_sb.expected_analysis_export
         validate: 'True'
       - driver: mem_access_out_agent.monitored_ap
         receiver: mem_access_sb.actual_analysis_export
         validate: 'True'
+
 
