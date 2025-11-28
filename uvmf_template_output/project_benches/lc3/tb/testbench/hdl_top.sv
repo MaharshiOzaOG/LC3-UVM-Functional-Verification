@@ -96,7 +96,7 @@ import uvmf_base_pkg_hdl::*;
      .E_control(dut.E_Control),
      .npc_out(dut.npc_out_dec),
      .Mem_control(dut.Mem_Control),
-     .W_control(dut.W_Control),
+     .W_control(dut.W_Control)
    // TODO://   .en_decode(delayed_en)
      // pragma uvmf custom decode_env_agent_out_bus_connections end
      );
@@ -199,7 +199,7 @@ import uvmf_base_pkg_hdl::*;
      .dr(dut.dr),
      .npc(dut.npc_out_dec),
      .pcout(dut.pcout),
-     .W_control(dut.W_Control_out)
+     .W_Control(dut.W_Control_out)
      // pragma uvmf custom writeback_env_agent_in_bus_connections end
      );
   writeback_out_if  writeback_env_agent_out_bus(
