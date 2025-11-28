@@ -1,0 +1,5 @@
+@use $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/interface_packages/mem_access_in_pkg/mem_access_in_pkg.vinfo
+@use $UVMF_VIP_LIBRARY_HOME/interface_packages/mem_access_out_pkg/mem_access_out_pkg.vinfo
++incdir+@vinfodir
+mem_access_env_pkg.sv
