@@ -131,7 +131,7 @@ end
   
   // ****************************************************************************              
   initial begin                                                                             
-    @go;                                                                                   
+    @go;                                                                               
     forever begin                                                                        
       @(posedge clk_i);  
       do_monitor( control_out_monitor_struct );
@@ -203,18 +203,18 @@ end
     // @(posedge clk_i);
     // @(posedge clk_i);
     // @(posedge clk_i);
-    do_wait_for_reset();
+    do_wait_for_reset();    
     control_out_monitor_struct.enable_updatePC = enable_updatePC_i; 
-control_out_monitor_struct.enable_fetch = enable_fetch_i;  //
-control_out_monitor_struct.enable_decode = enable_decode_i;  //
-control_out_monitor_struct.enable_execute = enable_execute_i;  
-control_out_monitor_struct.enable_writeback = enable_writeback_i;
-control_out_monitor_struct.br_taken = br_taken_i;  //    
-control_out_monitor_struct.bypass_alu_1 = bypass_alu_1_i;  //
-control_out_monitor_struct.bypass_alu_2 = bypass_alu_2_i;  //
-control_out_monitor_struct.bypass_mem_1 = bypass_mem_1_i;  //
-control_out_monitor_struct.bypass_mem_2 = bypass_mem_2_i;  //
-control_out_monitor_struct.mem_state = mem_state_i;  //   
+    control_out_monitor_struct.enable_fetch = enable_fetch_i;  //
+    control_out_monitor_struct.enable_decode = enable_decode_i;  //
+    control_out_monitor_struct.enable_execute = enable_execute_i;  
+    control_out_monitor_struct.enable_writeback = enable_writeback_i;
+    control_out_monitor_struct.br_taken = br_taken_i;  //    
+    control_out_monitor_struct.bypass_alu_1 = bypass_alu_1_i;  //
+    control_out_monitor_struct.bypass_alu_2 = bypass_alu_2_i;  //
+    control_out_monitor_struct.bypass_mem_1 = bypass_mem_1_i;  //
+    control_out_monitor_struct.bypass_mem_2 = bypass_mem_2_i;  //
+    control_out_monitor_struct.mem_state = mem_state_i;  //   
     // pragma uvmf custom do_monitor end
   endtask         
   

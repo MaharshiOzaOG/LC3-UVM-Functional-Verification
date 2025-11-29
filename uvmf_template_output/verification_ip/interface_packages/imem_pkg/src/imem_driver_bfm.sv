@@ -159,13 +159,6 @@ end
        // Bi-directional signals
  
      end
-     
-  always @(posedge clock_i) begin
-    wait( reset_i === 0 );
-    if(instrmem_rd_i === 'x) complete_instr_o <= 0;   
-    else                     complete_instr_o <= 1;
-    
-  end
 // pragma uvmf custom reset_condition_and_response end
 
   // pragma uvmf custom interface_item_additional begin
@@ -354,11 +347,17 @@ bit first_transfer=1;
        //      Instr_dout_o <= imem_responder_struct.xyz;  //    [15:0] 
        //      complete_instr_o <= imem_responder_struct.xyz;  //     
        //    Responder inout signals
-    wait( reset_i === 0 );
+    // wait( reset_i === 0 );
+    // do begin
+    //   @(posedge clock_i);
+    // end while (instrmem_rd_i === 1'b0);
+    // Instr_dout_o <= imem_responder_struct.Instr_dout; 
+    wait (reset_i == 0);
     do begin
       @(posedge clock_i);
     end while (instrmem_rd_i === 1'b0);
-    Instr_dout_o <= imem_responder_struct.Instr_dout; 
+    Instr_dout_o <= imem_responder_struct.Instr_dout;
+    complete_instr_o <= 1;
   // @(posedge clock_i);
   // if (!first_transfer) begin
   //   // Perform transfer response here.   

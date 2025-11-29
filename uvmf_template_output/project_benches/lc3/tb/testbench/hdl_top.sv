@@ -47,9 +47,9 @@ import uvmf_base_pkg_hdl::*;
   // Instantiate a rst driver
   // tbx clkgen
   initial begin
-    rst = 0; 
+    rst = 1; 
     #200ns;
-    rst =  1; 
+    rst =  0; 
   end
 // pragma uvmf custom reset_generator end
   initial begin

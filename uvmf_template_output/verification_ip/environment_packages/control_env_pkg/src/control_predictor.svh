@@ -60,7 +60,7 @@ class control_predictor #(
   control_sb_ap_output_transaction_t control_sb_ap_output_transaction;
   // Code for sending output transaction out through control_sb_ap
   // control_sb_ap.write(control_sb_ap_output_transaction);
-
+  bit control_output;
   // Define transaction handles for debug visibility 
   control_in_transaction control_in_agent_ae_debug;
 
@@ -96,10 +96,25 @@ class control_predictor #(
     // Construct one of each output transaction type.
     control_sb_ap_output_transaction = control_sb_ap_output_transaction_t::type_id::create("control_sb_ap_output_transaction");
     //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The control_predictor::write_control_in_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
- 
+    control_output = controller_model(
+                          t.complete_data,
+                          t.complete_instr,
+                          t.IR,
+                          t.psr,
+                          t.IR_Exec,
+                          t.IMem_dout,
+                          t.NZP,
+                          control_sb_ap_output_transaction.enable_updatePC,
+                          control_sb_ap_output_transaction.enable_fetch,
+                          control_sb_ap_output_transaction.enable_decode,
+                          control_sb_ap_output_transaction.enable_execute,
+                          control_sb_ap_output_transaction.enable_writeback,
+                          control_sb_ap_output_transaction.bypass_alu_1,
+                          control_sb_ap_output_transaction.bypass_alu_2,
+                          control_sb_ap_output_transaction.bypass_mem_1,
+                          control_sb_ap_output_transaction.bypass_mem_2,
+                          control_sb_ap_output_transaction.mem_state,
+                          control_sb_ap_output_transaction.br_taken);
     // Code for sending output transaction out through control_sb_ap
     // Please note that each broadcasted transaction should be a different object than previously 
     // broadcasted transactions.  Creation of a different object is done by constructing the transaction 

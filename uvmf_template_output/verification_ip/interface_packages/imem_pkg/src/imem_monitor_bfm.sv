@@ -120,12 +120,11 @@ end
     @go;     
     do_wait_for_reset();                                                                              
     forever begin                                                                        
-      @(posedge clock_i);  
       do_monitor( imem_monitor_struct );
                                                                  
  
       proxy.notify_transaction( imem_monitor_struct );
- 
+      @(posedge clock_i);  
     end                                                                                    
   end                                                                                       
 

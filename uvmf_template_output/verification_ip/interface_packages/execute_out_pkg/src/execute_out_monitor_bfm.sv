@@ -132,8 +132,7 @@ end
   // ****************************************************************************              
   initial begin                                                                             
     @go;     
-    do_wait_for_reset();                                                            
-    @(posedge clock_i) ;                                                                              
+    do_wait_for_reset();                                                                               
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( execute_out_monitor_struct );

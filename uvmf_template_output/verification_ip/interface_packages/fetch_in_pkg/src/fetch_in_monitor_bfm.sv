@@ -118,7 +118,7 @@ end
   // ****************************************************************************              
   initial begin                                                                             
     @go;      
-    do_wait_for_reset();                                                                             
+    wait ( rst_i === 0 ) ;                                                                           
     forever begin                                                                        
       @(posedge clk_i);  
       do_monitor( fetch_in_monitor_struct );
