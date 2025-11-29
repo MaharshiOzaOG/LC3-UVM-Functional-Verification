@@ -166,20 +166,20 @@ class lc3_bench_sequence_base extends uvmf_sequence_base #(uvm_sequence_item);
     // the last sequence to allow for the last sequence item to flow 
     // through the design.
     fork
-      fetch_env_agent_in_config.wait_for_num_clocks(5000);
-      fetch_env_agent_out_config.wait_for_num_clocks(5000);
-      decode_env_agent_in_config.wait_for_num_clocks(5000);
-      decode_env_agent_out_config.wait_for_num_clocks(5000);
-      execute_env_agent_in_config.wait_for_num_clocks(5000);
-      execute_env_agent_out_config.wait_for_num_clocks(5000);
-      mem_access_env_agent_in_config.wait_for_num_clocks(5000);
-      mem_access_env_agent_out_config.wait_for_num_clocks(5000);
-      control_env_agent_in_config.wait_for_num_clocks(5000);
-      control_env_agent_out_config.wait_for_num_clocks(5000);
-      writeback_env_agent_in_config.wait_for_num_clocks(5000);
-      writeback_env_agent_out_config.wait_for_num_clocks(5000);
-      imem_agent_config.wait_for_num_clocks(5000);
-      data_mem_agent_config.wait_for_num_clocks(5000);
+      fetch_env_agent_in_config.wait_for_num_clocks(1000);
+      fetch_env_agent_out_config.wait_for_num_clocks(1000);
+      decode_env_agent_in_config.wait_for_num_clocks(1000);
+      decode_env_agent_out_config.wait_for_num_clocks(1000);
+      execute_env_agent_in_config.wait_for_num_clocks(1000);
+      execute_env_agent_out_config.wait_for_num_clocks(1000);
+      mem_access_env_agent_in_config.wait_for_num_clocks(1000);
+      mem_access_env_agent_out_config.wait_for_num_clocks(1000);
+      control_env_agent_in_config.wait_for_num_clocks(1000);
+      control_env_agent_out_config.wait_for_num_clocks(1000);
+      writeback_env_agent_in_config.wait_for_num_clocks(1000);
+      writeback_env_agent_out_config.wait_for_num_clocks(1000);
+      imem_agent_config.wait_for_num_clocks(1000);
+      data_mem_agent_config.wait_for_num_clocks(1000);
     join
 
     // pragma uvmf custom body end

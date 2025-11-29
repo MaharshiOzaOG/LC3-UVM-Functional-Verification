@@ -42,7 +42,8 @@ class imem_responder_sequence
     forever begin
       start_item(req);
       if (!req.randomize() with {
-        instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STRR,STI,LD,LDR,LDI,LEA};
+        // instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STRR,STI,LD,LDR,LDI,LEA,JMP};
+        instruction_type inside {BR};
         // operation_type == MEMORY_OPERATIONS;
         
         dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
@@ -51,6 +52,7 @@ class imem_responder_sequence
         pcoffset9 inside {[0:511]}; // 9-bit offset
         pcoffset6 inside {[0:63]};   // 6-bit offset
         imm5 inside {[0:31]};
+        control_nzp inside {[0:7]};
       }) begin
         `uvm_fatal("SEQ", "Failed to randomize MEMORY instruction")
       end
@@ -58,6 +60,22 @@ class imem_responder_sequence
       //STORES
       case (req.instruction_type)    // Offset9
         // end 
+        BR: begin
+          req.instruction_type = BR;
+          req.operation_type = CONTROL_OPERATIONS;
+          instruction = {4'b0, 
+                          req.control_nzp,
+                          req.pcoffset9};
+        end
+
+        JMP: begin
+          req.instruction_type = JMP;
+          req.operation_type = CONTROL_OPERATIONS;
+          instruction = {4'b1100, 
+                          3'b000, 
+                          req.src_reg1, 
+                          6'b000000};
+        end
 
         STRR: begin
           // STR: Store Base+Offset
