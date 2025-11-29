@@ -70,7 +70,7 @@ import uvmf_base_pkg_hdl::*;
      .rst(rst),
      .enable_updatePC(dut.enable_updatePC),
      .enable_fetch(dut.enable_fetch),
-     .taddr(dut.taddr),
+     .taddr(dut.pcout),
      .br_taken(dut.br_taken)
      // pragma uvmf custom fetch_env_agent_in_bus_connections end
      );

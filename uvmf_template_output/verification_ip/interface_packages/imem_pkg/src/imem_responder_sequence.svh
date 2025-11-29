@@ -21,6 +21,7 @@ class imem_responder_sequence
   
     bit use_immediate_mode;
     bit [15:0] instruction;
+    bit [2:0] NZP = 3'b1;
   // pragma uvmf custom class_item_additional begin
   // pragma uvmf custom class_item_additional end
 
@@ -42,8 +43,7 @@ class imem_responder_sequence
     forever begin
       start_item(req);
       if (!req.randomize() with {
-        // instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STRR,STI,LD,LDR,LDI,LEA,JMP};
-        instruction_type inside {BR};
+        instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STRR,STI,LD,LDR,LDI,LEA,BR,JMP};
         // operation_type == MEMORY_OPERATIONS;
         
         dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
@@ -52,7 +52,8 @@ class imem_responder_sequence
         pcoffset9 inside {[0:511]}; // 9-bit offset
         pcoffset6 inside {[0:63]};   // 6-bit offset
         imm5 inside {[0:31]};
-        control_nzp inside {[0:7]};
+        control_nzp inside {[1:7]};
+        control_pcoffset9 inside {[0:511]};
       }) begin
         `uvm_fatal("SEQ", "Failed to randomize MEMORY instruction")
       end
@@ -65,7 +66,7 @@ class imem_responder_sequence
           req.operation_type = CONTROL_OPERATIONS;
           instruction = {4'b0, 
                           req.control_nzp,
-                          req.pcoffset9};
+                          req.control_pcoffset9};
         end
 
         JMP: begin
