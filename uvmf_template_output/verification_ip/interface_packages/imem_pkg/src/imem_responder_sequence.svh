@@ -30,17 +30,91 @@ class imem_responder_sequence
 
   task body();
     req=imem_transaction::type_id::create("req");
-    for (int i=0;i<8;i++) begin
-      start_item(req);
-      req.Instr_dout = {4'h5, i[2:0], i[2:0], 1'b1, 5'b0};
-      req.complete_instr = 1;
-      finish_item(req);
+    repeat(2)begin
+      for (int i=0;i<8;i++) begin
+        start_item(req);
+        req.Instr_dout = {4'h5, i[2:0], i[2:0], 1'b1, 5'b0};
+        req.complete_instr = 1;
+        finish_item(req);
+    end
     end
 
     forever begin
       start_item(req);
+      if (!req.randomize() with {
+        instruction_type inside {ST,STRR,STI};
+        operation_type == MEMORY_OPERATIONS;
+        
+        dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
+        src_reg1 inside {[0:7]};     // Used for BaseR
+        pcoffset9 inside {[0:511]}; // 9-bit offset
+        pcoffset6 inside {[0:63]};   // 6-bit offset
+      }) begin
+        `uvm_fatal("SEQ", "Failed to randomize MEMORY instruction")
+      end
+
+      //STORES
+      case (req.instruction_type)    // Offset9
+        // end 
+
+        STRR: begin
+          // STR: Store Base+Offset
+          // Format: 0111 SR BaseR PCOffset6
+          req.instruction_type = STRR;
+          instruction = {4'h7,                // Opcode (7)
+                             req.dest_reg,          // SR (Data to store)
+                             req.src_reg1,           // BaseR (Address)
+                             req.pcoffset6};    // Offset6
+        // end               req.src_reg1,           // SR (Data to store)
+                            //  req.pcoffset9};    // Offset9
+        end 
+
+        // STRR: begin
+        //   // STR: Store Base+Offset
+        //   // Format: 0111 SR BaseR PCOffset6
+        //   req.instruction_type = STRR;
+        //   instruction = {4'h7,                // Opcode (7)
+        //                      req.dest_reg,           // SR (Data to store)
+        //                      req.src_reg1,           // BaseR (Address)
+        //                      req.pcoffset6};    // Offset6
+        // end
+
+        STI: begin
+          // STI: Store Indirect
+          // Format: 1011 SR PCOffset9
+          req.instruction_type = STI;
+          instruction = {4'b1011,                // Opcode (B)
+                             req.src_reg1,           // SR (Data to store)
+                             req.pcoffset9};    // Offset9
+        end
+
+        ST: begin
+          // ST: Store PC-Relative
+          // Format: 0011 SR PCOffset9
+          req.instruction_type = ST;
+          instruction = {4'h3,                // Opcode (3)
+                          req.src_reg1,
+                          req.pcoffset9};
+        end
+      endcase
+
+      //   STI: begin
+      //     // STI: Store Indirect
+      //     // Format: 1011 SR PCOffset9
+      //     req.instruction_type = STI;
+      //     instruction = {4'hb,                // Opcode (B)
+      //                        req.dest_reg,           // SR (Data to store)
+      //                        req.pcoffset9};    // Offset9
+      //   end
+      // endcaseq.instruction_type)
+      //   ST: begin
+      //     // ST: Store PC-Relative
+      //     // Format: 0011 SR PCOffset9
+      //     req.instruction_type = ST;
+      //     instruction = {4'h3,                // Opcode (3)
+      //         
       // if (!req.randomize() with {
-      //   instruction_type inside {ST,STRR,STI};
+      //   instruction_type inside {LD,LDR,LDI,LEA};
       //   operation_type == MEMORY_OPERATIONS;
         
       //   dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
@@ -51,87 +125,45 @@ class imem_responder_sequence
       //   `uvm_fatal("SEQ", "Failed to randomize MEMORY instruction")
       // end
 
-      // //STORES
-      // case (req.instruction_type)
-      //   ST: begin
-      //     // ST: Store PC-Relative
-      //     // Format: 0011 SR PCOffset9
-      //     req.instruction_type = ST;
-      //     instruction = {4'h3,                // Opcode (3)
-      //                        req.src_reg1,           // SR (Data to store)
-      //                        req.pcoffset9};    // Offset9
-      //   end 
-
-      //   STRR: begin
-      //     // STR: Store Base+Offset
-      //     // Format: 0111 SR BaseR PCOffset6
-      //     req.instruction_type = STRR;
-      //     instruction = {4'h7,                // Opcode (7)
-      //                        req.dest_reg,           // SR (Data to store)
-      //                        req.src_reg1,           // BaseR (Address)
-      //                        req.pcoffset6};    // Offset6
+      // //LOADS
+      // case (req.instruction_type) 
+      //   LD: begin
+      //       // LD: Load PC-Relative
+      //       // Format: 0010 DR PCOffset9
+      //       req.instruction_type = LD;
+      //       instruction = {4'h2,                // Opcode
+      //                          req.dest_reg,             // DR
+      //                          req.pcoffset9};      // Offset9
       //   end
 
-      //   STI: begin
-      //     // STI: Store Indirect
-      //     // Format: 1011 SR PCOffset9
-      //     req.instruction_type = STI;
-      //     instruction = {4'hb,                // Opcode (B)
-      //                        req.dest_reg,           // SR (Data to store)
+      //   LDR: begin
+      //     // LDR: Load Base+Offset
+      //     // Format: 0110 DR BaseR PCOffset6
+      //     req.instruction_type = LDR;
+      //     instruction = {4'h6,                // Opcode
+      //                        req.dest_reg,           // DR
+      //                        req.src_reg1,           // BaseR
+      //                        req.pcoffset6};    // Offset6
+      //   end 
+
+      //   LDI: begin
+      //     // LDI: Load Indirect
+      //     // Format: 1010 DR PCOffset9
+      //     req.instruction_type = LDI;
+      //     instruction = {4'ha,                // Opcode
+      //                        req.dest_reg,           // DR
+      //                        req.pcoffset9};    // Offset9
+      //   end
+
+      //   LEA: begin
+      //     // LEA: Load Effective Address
+      //     // Format: 1110 DR PCOffset9
+      //     req.instruction_type = LEA;
+      //     instruction = {4'he,                // Opcode
+      //                        req.dest_reg,           // DR
       //                        req.pcoffset9};    // Offset9
       //   end
       // endcase
-      if (!req.randomize() with {
-        instruction_type inside {LD,LDR,LDI,LEA};
-        operation_type == MEMORY_OPERATIONS;
-        
-        dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
-        src_reg1 inside {[0:7]};     // Used for BaseR
-        pcoffset9 inside {[0:255]}; // 9-bit offset
-        pcoffset6 inside {[0:31]};   // 6-bit offset
-      }) begin
-        `uvm_fatal("SEQ", "Failed to randomize MEMORY instruction")
-      end
-
-      //LOADS
-      case (req.instruction_type) 
-        LD: begin
-            // LD: Load PC-Relative
-            // Format: 0010 DR PCOffset9
-            req.instruction_type = LD;
-            instruction = {4'h2,                // Opcode
-                               req.dest_reg,             // DR
-                               req.pcoffset9};      // Offset9
-        end
-
-        LDR: begin
-          // LDR: Load Base+Offset
-          // Format: 0110 DR BaseR PCOffset6
-          req.instruction_type = LDR;
-          instruction = {4'h6,                // Opcode
-                             req.dest_reg,           // DR
-                             req.src_reg1,           // BaseR
-                             req.pcoffset6};    // Offset6
-        end 
-
-        LDI: begin
-          // LDI: Load Indirect
-          // Format: 1010 DR PCOffset9
-          req.instruction_type = LDI;
-          instruction = {4'ha,                // Opcode
-                             req.dest_reg,           // DR
-                             req.pcoffset9};    // Offset9
-        end
-
-        LEA: begin
-          // LEA: Load Effective Address
-          // Format: 1110 DR PCOffset9
-          req.instruction_type = LEA;
-          instruction = {4'he,                // Opcode
-                             req.dest_reg,           // DR
-                             req.pcoffset9};    // Offset9
-        end
-      endcase
 
       //ALU Operations 
       // use_immediate_mode = $urandom_range(0, 1);
