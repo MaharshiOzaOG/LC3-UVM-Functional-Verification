@@ -103,7 +103,7 @@ end
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
     wait ( rst_i === 0 ) ;                                                              
-    // @(posedge clk_i) ;                                                                    
+    @(posedge clk_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -124,13 +124,10 @@ end
   // ****************************************************************************              
   initial begin                                                                             
     @go;                                                                                   
-    forever begin                                                                        
-      @(posedge clk_i);  
+    forever begin                                          
+      @(posedge clk_i);                                
       do_monitor( control_in_monitor_struct );
-                                                                 
- 
       proxy.notify_transaction( control_in_monitor_struct );
- 
     end                                                                                    
   end                                                                                       
 
@@ -187,7 +184,6 @@ end
     // @(posedge clk_i);
     // @(posedge clk_i);
     // @(posedge clk_i);
-    do_wait_for_reset();
     control_in_monitor_struct.complete_data = complete_data_i;  //     
     control_in_monitor_struct.complete_instr = complete_instr_i;  //     
     control_in_monitor_struct.IR = IR_i;  //    [15:0] 

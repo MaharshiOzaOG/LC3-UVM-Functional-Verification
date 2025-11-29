@@ -18,10 +18,10 @@ class fetch_in_transaction  extends uvmf_transaction_base;
 
   `uvm_object_utils( fetch_in_transaction )
 
-  logic enable_updatePC ;
-  logic enable_fetch ;
-  logic [15:0] taddr ;
-  logic br_taken ;
+  bit enable_updatePC ;
+  bit enable_fetch ;
+  bit [15:0] taddr ;
+  bit br_taken ;
 
   //Constraints for the transaction variables:
 

@@ -111,7 +111,7 @@ end
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
     wait ( rst_i === 0 ) ;                                                              
-    // @(posedge clk_i) ;                                                                    
+    @(posedge clk_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -202,8 +202,7 @@ end
     // @(posedge clk_i);
     // @(posedge clk_i);
     // @(posedge clk_i);
-    // @(posedge clk_i);
-    do_wait_for_reset();    
+    // @(posedge clk_i);   
     control_out_monitor_struct.enable_updatePC = enable_updatePC_i; 
     control_out_monitor_struct.enable_fetch = enable_fetch_i;  //
     control_out_monitor_struct.enable_decode = enable_decode_i;  //
