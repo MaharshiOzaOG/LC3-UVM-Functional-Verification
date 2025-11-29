@@ -132,7 +132,7 @@ end
   // ****************************************************************************              
   initial begin                                                                             
     @go;     
-    wait ( reset_i === 0 ) ;                                                              
+    do_wait_for_reset();                                                            
     @(posedge clock_i) ;                                                                              
     forever begin                                                                        
       @(posedge clock_i);  
@@ -198,8 +198,7 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.  
-    while(enable_execute_i != 1'b1)
-    @(posedge clock_i);
+    while(enable_execute_i != 1'b1) @(posedge clock_i);
     execute_out_monitor_struct.sr1 = sr1_i;
     execute_out_monitor_struct.sr2 = sr2_i;
     #1;
@@ -208,7 +207,6 @@ end
     execute_out_monitor_struct.aluout = aluout_i;
     execute_out_monitor_struct.pcout = pcout_i;
     execute_out_monitor_struct.dr = dr_i;
-
     execute_out_monitor_struct.IR_Exec = IR_Exec_i;
     execute_out_monitor_struct.NZP = NZP_i;
     execute_out_monitor_struct.M_Data = M_Data_i;

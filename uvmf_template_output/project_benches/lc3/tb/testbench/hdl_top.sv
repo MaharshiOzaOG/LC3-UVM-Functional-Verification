@@ -28,6 +28,7 @@ import uvmf_base_pkg_hdl::*;
 
   // pragma attribute hdl_top partition_module_xrtl                                            
 // pragma uvmf custom clock_generator begin
+  bit delayed_enable;
   bit clk;
   // Instantiate a clk driver 
   // tbx clkgen
@@ -51,7 +52,11 @@ import uvmf_base_pkg_hdl::*;
     rst =  1; 
   end
 // pragma uvmf custom reset_generator end
-
+  initial begin
+      forever begin
+          @(posedge clk) delayed_enable = dut.enable_decode;
+      end
+  end
   // pragma uvmf custom module_item_additional begin
   // pragma uvmf custom module_item_additional end
 
@@ -96,8 +101,8 @@ import uvmf_base_pkg_hdl::*;
      .E_control(dut.E_Control),
      .npc_out(dut.npc_out_dec),
      .Mem_control(dut.Mem_Control),
-     .W_control(dut.W_Control)
-   // TODO://   .en_decode(delayed_en)
+     .W_control(dut.W_Control),
+     .enable_decode(delayed_enable)
      // pragma uvmf custom decode_env_agent_out_bus_connections end
      );
   execute_in_if  execute_env_agent_in_bus(

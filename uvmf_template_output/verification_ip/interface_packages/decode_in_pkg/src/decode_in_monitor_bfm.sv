@@ -95,7 +95,7 @@ end
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
     wait ( reset_i === 0 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
+    //@(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -115,7 +115,8 @@ end
   
   // ****************************************************************************              
   initial begin                                                                             
-    @go;                                                                                   
+    @go;
+    do_wait_for_reset();                                                                                   
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( decode_in_monitor_struct );
@@ -178,10 +179,102 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+      while(enable_decode_i == 0)  @(posedge clock_i); 
+      begin
+      decode_in_monitor_struct.instr_dout = instr_dout_i;
+      decode_in_monitor_struct.npc_in = npc_in_i;
+      end
+      //ADD
+       if((instr_dout_i[15:12] == 4'h1) && (!instr_dout_i[5])) begin
+          decode_in_monitor_struct.ins_type = op_t'(4'h1);
+          decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+          decode_in_monitor_struct.sr1 = instr_dout_i[8:6];
+          decode_in_monitor_struct.sr2 = instr_dout_i[2:0];
+      end
+      //ADD_I
+      else if((instr_dout_i[15:12] == 4'h1) && (instr_dout_i[5])) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h1);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.sr1 = instr_dout_i[8:6];
+        decode_in_monitor_struct.imm5 = instr_dout_i[4:0];
+      end
+      //AND
+      else if((instr_dout_i[15:12] == 4'h5) && (!instr_dout_i[5])) begin
+          decode_in_monitor_struct.ins_type = op_t'(4'h5);
+          decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+          decode_in_monitor_struct.sr1 = instr_dout_i[8:6];
+          decode_in_monitor_struct.sr2 = instr_dout_i[2:0];
+      end
+     //AND_I
+      else if((instr_dout_i[15:12] == 4'h5) && (instr_dout_i[5])) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h5);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.sr1 = instr_dout_i[8:6];
+        decode_in_monitor_struct.imm5 = instr_dout_i[4:0];
+      end
+     //NOT
+      else if(instr_dout_i[15:12] == 4'h9) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h9);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.sr1 = instr_dout_i[8:6];
+      end
+     //LD
+      else if(instr_dout_i[15:12] == 4'h2) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h2);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.pcoffset9 = instr_dout_i[8:0];
+      end
+      //LDR
+      else if(instr_dout_i[15:12] == 4'h6) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h6);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.baser = instr_dout_i[8:6];
+        decode_in_monitor_struct.pcoffset6 = instr_dout_i[5:0];
+      end
+      //LDI
+      else if(instr_dout_i[15:12] == 4'ha) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'ha);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.pcoffset9 = instr_dout_i[8:0];
+      end
+      //LEA
+      else if(instr_dout_i[15:12] == 4'he) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'he);
+        decode_in_monitor_struct.dr  = instr_dout_i[11:9];
+        decode_in_monitor_struct.pcoffset9 = instr_dout_i[8:0];
+      end
+      //ST
+      else if(instr_dout_i[15:12] == 4'h3) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h3);
+        decode_in_monitor_struct.sr1  = instr_dout_i[11:9];
+        decode_in_monitor_struct.pcoffset9 = instr_dout_i[8:0];
+      end
+      //STR
+      else if(instr_dout_i[15:12] == 4'h7) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h7);
+        decode_in_monitor_struct.sr1  = instr_dout_i[11:9];
+        decode_in_monitor_struct.baser = instr_dout_i[8:6];
+        decode_in_monitor_struct.pcoffset6 = instr_dout_i[5:0];
+      end
+      //STI
+      else if(instr_dout_i[15:12] == 4'hb) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'hb);
+        decode_in_monitor_struct.sr1  = instr_dout_i[11:9];
+        decode_in_monitor_struct.pcoffset9 = instr_dout_i[8:0];
+      end
+      //BR
+      else if(instr_dout_i[15:12] == 4'h0) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'h0);
+        decode_in_monitor_struct.n  = instr_dout_i[11];
+        decode_in_monitor_struct.z  = instr_dout_i[10];
+        decode_in_monitor_struct.p  = instr_dout_i[9];
+        decode_in_monitor_struct.pcoffset9 = instr_dout_i[8:0];
+      end
+      //JMP
+      else if(instr_dout_i[15:12] == 4'hc) begin
+        decode_in_monitor_struct.ins_type = op_t'(4'hc);
+        decode_in_monitor_struct.baser = instr_dout_i[8:6];
+      end
     // pragma uvmf custom do_monitor end
   endtask         
   

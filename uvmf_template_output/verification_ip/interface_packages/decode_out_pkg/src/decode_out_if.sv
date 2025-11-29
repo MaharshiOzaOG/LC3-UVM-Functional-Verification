@@ -37,7 +37,8 @@ interface  decode_out_if
   inout tri [5:0] E_control,
   inout tri [15:0] npc_out,
   inout tri [1:0] W_control,
-  inout tri  Mem_control
+  inout tri  Mem_control,
+  input tri enable_decode
   );
 
 modport monitor_port 
@@ -48,7 +49,8 @@ modport monitor_port
   input E_control,
   input npc_out,
   input W_control,
-  input Mem_control
+  input Mem_control,
+  input enable_decode
   );
 
 modport initiator_port 

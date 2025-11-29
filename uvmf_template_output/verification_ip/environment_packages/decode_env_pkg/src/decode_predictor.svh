@@ -60,7 +60,7 @@ class decode_predictor #(
   predict_ap_output_transaction_t predict_ap_output_transaction;
   // Code for sending output transaction out through predict_ap
   // predict_ap.write(predict_ap_output_transaction);
-
+  bit decode_output;
   // Define transaction handles for debug visibility 
   decode_in_transaction analysis_export_debug;
 
@@ -96,10 +96,14 @@ class decode_predictor #(
     // Construct one of each output transaction type.
     predict_ap_output_transaction = predict_ap_output_transaction_t::type_id::create("predict_ap_output_transaction");
     //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The decode_predictor::write_analysis_export function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
- 
+    decode_output = decode_model(.instr_dout(t.instr_dout),
+                                       .npc_in(t.npc_in),
+                                       .ir(predict_ap_output_transaction.IR),
+                                       .npc_out(predict_ap_output_transaction.npc_out),
+                                       .e_control(predict_ap_output_transaction.E_control),
+                                       .w_control(predict_ap_output_transaction.W_control),
+                                       .mem_control(predict_ap_output_transaction.Mem_control)
+                                       );
     // Code for sending output transaction out through predict_ap
     // Please note that each broadcasted transaction should be a different object than previously 
     // broadcasted transactions.  Creation of a different object is done by constructing the transaction 

@@ -107,7 +107,7 @@ end
   
   //******************************************************************                         
   task wait_for_reset();// pragma tbx xtf  
-    // @(posedge clock_i) ;                                                                    
+    @(posedge clock_i) ;                                                                    
     do_wait_for_reset();                                                                   
   endtask                                                                                   
 
@@ -129,14 +129,14 @@ end
 
   //******************************************************************                         
   event go;                                                                                 
-  function void start_monitoring();// pragma tbx xtf   
-    wait_for_reset(); 
+  function void start_monitoring();// pragma tbx xtf    
     -> go;
   endfunction                                                                               
   
   // ****************************************************************************              
   initial begin                                                                             
-    @go;                                                                                   
+    @go;
+    do_wait_for_reset();                                                                                   
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( execute_in_monitor_struct );
