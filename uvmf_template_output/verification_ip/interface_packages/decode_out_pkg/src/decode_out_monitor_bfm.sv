@@ -74,7 +74,7 @@ end
   tri [15:0] npc_out_i;
   tri [1:0] W_control_i;
   tri  Mem_control_i;
-  bit delayed_en;
+  bit en_dly;
   assign clock_i = bus.clock;
   assign reset_i = bus.reset;
   assign IR_i = bus.IR;
@@ -82,7 +82,7 @@ end
   assign npc_out_i = bus.npc_out;
   assign W_control_i = bus.W_control;
   assign Mem_control_i = bus.Mem_control;
-  assign delayed_en = bus.enable_decode;
+  assign en_dly = bus.enable_decode;
   // Proxy handle to UVM monitor
   decode_out_pkg::decode_out_monitor  proxy;
   // pragma tbx oneway proxy.notify_transaction                 
@@ -177,10 +177,10 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    while (!delayed_en) @(posedge clock_i);
+    while (!en_dly) @(posedge clock_i);
       decode_out_monitor_struct.IR = IR_i;
-      decode_out_monitor_struct.npc_out = npc_out_i;
       decode_out_monitor_struct.E_control = E_control_i;
+      decode_out_monitor_struct.npc_out = npc_out_i;
       decode_out_monitor_struct.W_control = W_control_i;
       decode_out_monitor_struct.Mem_control = Mem_control_i;    
     // pragma uvmf custom do_monitor end
