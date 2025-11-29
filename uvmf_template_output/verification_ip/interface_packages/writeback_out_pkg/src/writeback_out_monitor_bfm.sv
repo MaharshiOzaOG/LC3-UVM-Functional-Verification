@@ -73,6 +73,7 @@ end
   tri [15:0] VSR2_i;
   tri [2:0] psr_i;
   tri  enable_writeback_i;
+  bit en_dly;
   assign clock_i = bus.clock;
   assign reset_i = bus.reset;
   assign VSR1_i = bus.VSR1;
@@ -97,7 +98,7 @@ end
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
     wait ( reset_i === 0 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
+    //@(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -115,16 +116,19 @@ end
     -> go;
   endfunction                                                                               
   
+  // always @(posedge clock_i) begin
+  //   en_dly <= enable_writeback_i;
+  // end
   // ****************************************************************************              
   initial begin                                                                             
     @go;                                                                                   
-    forever begin                                                                        
-      @(posedge clock_i);  
+    forever begin 
+      if (enable_writeback_i) begin                                                                        
       do_monitor( writeback_out_monitor_struct );
-                                                                 
- 
       proxy.notify_transaction( writeback_out_monitor_struct );
- 
+      end else begin 
+        @(posedge clock_i); 
+      end 
     end                                                                                    
   end                                                                                       
 
@@ -171,10 +175,11 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+      writeback_out_monitor_struct.VSR1 = VSR1_i;
+      writeback_out_monitor_struct.VSR2 = VSR2_i;
+      @(posedge clock_i);
+      writeback_out_monitor_struct.enable_writeback = 1'b1;
+      writeback_out_monitor_struct.psr = psr_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

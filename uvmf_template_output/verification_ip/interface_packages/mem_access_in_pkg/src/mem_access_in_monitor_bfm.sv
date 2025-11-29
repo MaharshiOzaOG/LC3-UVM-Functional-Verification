@@ -176,7 +176,7 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    wait (rst_i === 0);
+    //wait (rst_i === 0);
     mem_access_in_monitor_struct.mem_state = mem_state_i;
     mem_access_in_monitor_struct.m_control = m_control_i;
     mem_access_in_monitor_struct.m_addr = m_addr_i;

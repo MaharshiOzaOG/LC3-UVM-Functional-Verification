@@ -60,7 +60,7 @@ class mem_access_predictor #(
   predict_ap_output_transaction_t predict_ap_output_transaction;
   // Code for sending output transaction out through predict_ap
   // predict_ap.write(predict_ap_output_transaction);
-
+  bit model_status;
   // Define transaction handles for debug visibility 
   mem_access_in_transaction analysis_export_debug;
 
@@ -96,10 +96,18 @@ class mem_access_predictor #(
     // Construct one of each output transaction type.
     predict_ap_output_transaction = predict_ap_output_transaction_t::type_id::create("predict_ap_output_transaction");
     //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The mem_access_predictor::write_analysis_export function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
- 
+          model_status = mem_access_model(
+        .M_Data(t.m_data),
+        .M_Addr(t.m_addr),
+        .M_Control(t.m_control),
+        .mem_state(t.mem_state),
+        .DMem_dout(t.dmem_dout),
+        .DMem_addr(predict_ap_output_transaction.dmem_addr),
+        .DMem_din(predict_ap_output_transaction.dmem_din),
+        .memout(predict_ap_output_transaction.memout),
+        .DMem_rd(predict_ap_output_transaction.dmem_rd)
+      );
+      
     // Code for sending output transaction out through predict_ap
     // Please note that each broadcasted transaction should be a different object than previously 
     // broadcasted transactions.  Creation of a different object is done by constructing the transaction 

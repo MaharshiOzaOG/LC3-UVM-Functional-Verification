@@ -127,7 +127,8 @@ end
   
   // ****************************************************************************              
   initial begin                                                                             
-    @go;                                                                                   
+    @go;
+    do_wait_for_reset();                                                                                   
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( writeback_in_monitor_struct );
@@ -194,10 +195,16 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    while (!enable_writeback_i) @(posedge clock_i);
+      writeback_in_monitor_struct.aluout = aluout_i;
+      writeback_in_monitor_struct.W_Control = W_Control_i;
+      writeback_in_monitor_struct.npc = npc_i;
+      writeback_in_monitor_struct.pcout = pcout_i;
+      writeback_in_monitor_struct.memout = memout_i;
+      writeback_in_monitor_struct.enable_writeback = enable_writeback_i;
+      writeback_in_monitor_struct.sr1 = sr1_i;
+      writeback_in_monitor_struct.sr2 = sr2_i;
+      writeback_in_monitor_struct.dr = dr_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

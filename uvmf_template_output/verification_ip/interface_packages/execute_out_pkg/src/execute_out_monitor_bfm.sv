@@ -201,6 +201,8 @@ end
     execute_out_monitor_struct.sr1 = sr1_i;
     execute_out_monitor_struct.sr2 = sr2_i;
     #1;
+    //@(posedge clock_i);
+    //execute_out_monitor_struct.enable_execute = 1'b1;
     execute_out_monitor_struct.W_Control_out = W_Control_out_i;
     execute_out_monitor_struct.Mem_Control_out = Mem_Control_out_i;
     execute_out_monitor_struct.aluout = aluout_i;

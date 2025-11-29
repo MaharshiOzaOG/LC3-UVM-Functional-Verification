@@ -60,7 +60,8 @@ class writeback_out_monitor  extends uvmf_monitor_base #(
   // Start monitor BFM thread and don't call super.run() in order to                       
   // override the default monitor proxy 'pull' behavior with the more                      
   // emulation-friendly BFM 'push' approach using the notify_transaction                   
-  // function below                                                                        
+  // function below 
+  bfm.wait_for_reset();                                                                       
   bfm.start_monitoring();                                                   
   endtask                                                                                    
   
