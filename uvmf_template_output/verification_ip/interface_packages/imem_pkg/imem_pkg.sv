@@ -62,6 +62,9 @@ package imem_pkg;
    `include "src/imem2reg_adapter.svh"
 
    `include "src/imem_agent.svh"
+   `include "src/alu_instructions.svh"
+   `include "src/control_instructions.svh"
+   `include "src/memory_instructions.svh"
 
    // pragma uvmf custom package_item_additional begin
    // UVMF_CHANGE_ME : When adding new interface sequences to the src directory

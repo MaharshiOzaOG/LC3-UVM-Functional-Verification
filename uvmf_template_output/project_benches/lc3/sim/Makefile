@@ -47,7 +47,7 @@ endif
 
 
 # Set test case specific Variables
-TEST_NAME            ?= test_top
+TEST_NAME            ?= alu_seq_test
 
 TEST_SEED            ?= random
 UVM_CLI_ARGS         = 

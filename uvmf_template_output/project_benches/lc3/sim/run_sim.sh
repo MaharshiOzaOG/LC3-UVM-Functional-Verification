@@ -7,4 +7,7 @@ echo "UVMF_HOME: $UVMF_HOME"
 echo "QUESTA_HOME: $QUESTA_HOME"
 
 # 5. Run the UVMF Build/Compile/Run script
-python3.9 $UVMF_HOME/scripts/uvmf_bcr.py questa live:True enable_trlog:True use_vis_uvm:True
+#python3.9 $UVMF_HOME/scripts/uvmf_bcr.py questa live:True enable_trlog:True use_vis_uvm:True
+python3.9 $UVMF_HOME/scripts/uvmf_bcr.py questa test:alu_seq_test live:True enable_trlog:True use_vis_uvm:True
+# python3.9 $UVMF_HOME/scripts/uvmf_bcr.py questa test:control_seq_test live:True enable_trlog:True use_vis_uvm:True
+# python3.9 $UVMF_HOME/scripts/uvmf_bcr.py questa test:memory_seq_test live:True enable_trlog:True use_vis_uvm:True
