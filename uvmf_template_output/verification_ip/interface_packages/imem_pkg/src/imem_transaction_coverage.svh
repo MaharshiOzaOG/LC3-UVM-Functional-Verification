@@ -22,6 +22,11 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
   bit [3:0] Instr_opcode;
   bit [15:0] ANDI_cp;
   bit [15:0] ADDI_cp;
+  bit [2:0] DR_cp;
+  bit [2:0] SR1_cp;
+  bit [2:0] SR2_cp;
+  bit [2:0] ADD_reg_cross;
+  bit [2:0] ADDI_reg_cross;
 
   
 
@@ -34,6 +39,7 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
     // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
     option.auto_bin_max=1024;
     option.per_instance=1;
+    //option.instance = 1;
     // PC: coverpoint coverage_trans.PC;
     // instrmem_rd: coverpoint coverage_trans.instrmem_rd;
     // Instr_dout: coverpoint coverage_trans.Instr_dout;
@@ -59,34 +65,51 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
 
     //covergroup imem_transaction_cg;
     Instr_opcode : coverpoint coverage_trans.Instr_dout[15:12] {
-      bins ADD  = {4'b0001};
-      bins AND  = {4'b0101};
-      bins NOT  = {4'b1001};
-      bins LD   = {4'b0010};
-      bins LDR  = {4'b0110};
-      bins LDI  = {4'b1010};
-      bins LEA  = {4'b1110};
-      bins ST   = {4'b0011};
-      bins STR  = {4'b0111};
-      bins STI  = {4'b1011};
-      bins BR   = {4'b0000};
-      bins JMP  = {4'b1100};
+      bins ADD  = {4'h1};
+      bins AND  = {4'h5};
+      bins NOT  = {4'h9};
+      bins LD   = {4'h2};
+      bins LDR  = {4'h6};
+      bins LDI  = {4'hA};
+      bins LEA  = {4'hE};
+      bins ST   = {4'h3};
+      bins STR  = {4'h7};
+      bins STI  = {4'hB};
+      bins BR   = {4'h0};
+      bins JMP  = {4'hC};
     }
 
     ADDI_cp : coverpoint coverage_trans.Instr_dout {
       bins addi = { [16'h0000 : 16'hFFFF] } iff 
-                  (coverage_trans.Instr_dout[15:12] == 4'b0001 &&
-                  coverage_trans.Instr_dout[5]     == 1'b1);
+                  (coverage_trans.Instr_dout[15:12] == 4'h1 &&
+                  coverage_trans.Instr_dout[5]     == 1'h1);
     }
 
     ANDI_cp : coverpoint coverage_trans.Instr_dout {
       bins andi = { [16'h0000 : 16'hFFFF] } iff 
-                  (coverage_trans.Instr_dout[15:12] == 4'b0101 &&
-                  coverage_trans.Instr_dout[5]     == 1'b1);
+                  (coverage_trans.Instr_dout[15:12] == 4'h5 &&
+                  coverage_trans.Instr_dout[5]     == 1'h1);
     }
 
+    DR_cp  : coverpoint coverage_trans.Instr_dout[11:9]  { bins dest_regs[] = {[0:7]} iff 
+                                                          (coverage_trans.Instr_dout[15:12]==4'h1 || 
+                                                          coverage_trans.Instr_dout[15:12]==4'h5 || 
+                                                          coverage_trans.Instr_dout[15:12]==4'h9); } 
+    SR1_cp : coverpoint coverage_trans.Instr_dout[8:6]   { bins sr1_regs[] = {[0:7]} iff 
+                                                          (coverage_trans.Instr_dout[15:12]==4'h1 || 
+                                                          coverage_trans.Instr_dout[15:12]==4'h5 || 
+                                                          coverage_trans.Instr_dout[15:12]==4'h9); } 
+    SR2_cp : coverpoint coverage_trans.Instr_dout[2:0]  { bins sr2_regs[] = {[0:7]} iff 
+                                                          (coverage_trans.Instr_dout[15:12]==4'h1 || 
+                                                          coverage_trans.Instr_dout[15:12]==4'h5); }
 
-    
+    ADD_reg_cross : cross DR_cp, SR1_cp, SR2_cp
+    iff (coverage_trans.Instr_dout[15:12] == 4'h1 && coverage_trans.Instr_dout[5] == 0);
+
+    ADDI_reg_cross : cross DR_cp, SR1_cp, SR2_cp
+    iff (coverage_trans.Instr_dout[15:12] == 4'h1 && coverage_trans.Instr_dout[5] == 1);
+
+
   endgroup
 
   // ****************************************************************************

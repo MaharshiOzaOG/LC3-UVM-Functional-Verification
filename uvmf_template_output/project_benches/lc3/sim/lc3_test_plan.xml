@@ -9,7 +9,7 @@
   <Author>Allan Crone</Author>
   <LastAuthor>Madhuri Narayanan Chelur</LastAuthor>
   <Created>2006-10-02T07:59:43Z</Created>
-  <LastSaved>2025-11-29T19:41:21Z</LastSaved>
+  <LastSaved>2025-11-30T23:29:04Z</LastSaved>
   <Company>Mentor Graphics</Company>
   <Version>16.00</Version>
  </DocumentProperties>
@@ -17,8 +17,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17310</WindowHeight>
-  <WindowWidth>32767</WindowWidth>
+  <WindowHeight>8388</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <TabRatio>416</TabRatio>
@@ -192,59 +192,22 @@
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Arial"/>
-   <Interior/>
-   <NumberFormat ss:Format="@"/>
-  </Style>
-  <Style ss:ID="s79">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Arial"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s80">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Arial"/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s81">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat ss:Format="@"/>
-  </Style>
-  <Style ss:ID="s83">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="AHB to WB Bridge Test Plan">
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="30" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="53" ss:DefaultRowHeight="12">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="68"/>
-   <Column ss:AutoFitWidth="0" ss:Width="155.5"/>
-   <Column ss:Width="335"/>
-   <Column ss:AutoFitWidth="0" ss:Width="238"/>
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="28" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="52.8" ss:DefaultRowHeight="12">
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="67.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
+   <Column ss:Width="334.8"/>
+   <Column ss:AutoFitWidth="0" ss:Width="238.2"/>
    <Column ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:AutoFitWidth="0" ss:Width="62"/>
+   <Column ss:AutoFitWidth="0" ss:Width="61.8"/>
    <Column ss:AutoFitWidth="0" ss:Width="45"/>
    <Column ss:AutoFitWidth="0" ss:Width="81" ss:Span="2"/>
-   <Row ss:AutoFitHeight="0" ss:Height="22">
+   <Row ss:AutoFitHeight="0" ss:Height="22.05">
     <Cell ss:StyleID="s63"><Data ss:Type="String">Verification Plan for LC-3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13"/>
+   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999"/>
    <Row ss:AutoFitHeight="0" ss:Height="18">
     <Cell ss:StyleID="s64"><Data ss:Type="String">#</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Section</Data></Cell>
@@ -269,7 +232,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13">
+   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
     <Cell ss:StyleID="s69"><Data ss:Type="String">1</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">LC3 Coverage</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -281,7 +244,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="37">
+   <Row ss:AutoFitHeight="0" ss:Height="37.049999999999997">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">LC3 instructions test</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Checking for various LC3 instructions</Data></Cell>
@@ -293,7 +256,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13">
+   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.1</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">LC3  Instructions opcode</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Checking coverage for ALL instructions</Data></Cell>
@@ -305,7 +268,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.2</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">LC3  Instructions ADDI</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Checking coverage for ADD imm mode instructions</Data></Cell>
@@ -317,7 +280,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.3</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">LC3  Instructions ANDI</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Checking coverage for AND imm mode instructions</Data></Cell>
@@ -329,89 +292,65 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.4</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">LC3 ALU Instructions DR</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Checking coverage for Destination Registers in ALU Ops</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">imem_transaction_cg::DR_cp</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Coverpoint</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.5</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">LC3 ALU Instructions SR1</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Checking coverage for Source Registers1 in ALU Ops</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">imem_transaction_cg::SR1_cp</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Coverpoint</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.6</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">LC3 ALU Instructions SR2</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Checking coverage forSource Register2 s in ALU Ops</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">imem_transaction_cg::SR2_cp</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Coverpoint</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.7</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">LC3 ADD Instruction Registers</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Checking cross coverage for Source and Destination Registers for ADD</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">imem_transaction_cg::ADD_reg_cross</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.5">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s80"/>
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.8</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">LC3 ADDI Instruction Registers</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Checking cross coverage for Source and Destination Registers for ADDI</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">imem_transaction_cg::ADDI_reg_cross</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Cross</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -474,7 +413,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>21</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
