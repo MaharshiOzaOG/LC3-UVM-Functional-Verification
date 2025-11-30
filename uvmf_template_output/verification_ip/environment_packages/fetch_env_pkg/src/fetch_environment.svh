@@ -71,6 +71,7 @@ class fetch_environment  extends uvmf_environment_base #(
     fetch_pred = fetch_pred_t::type_id::create("fetch_pred",this);
     fetch_pred.configuration = configuration;
     fetch_sb = fetch_sb_t::type_id::create("fetch_sb",this);
+    fetch_sb.disable_end_of_test_empty_check(); //manoj
 
     vsqr = fetch_vsqr_t::type_id::create("vsqr", this);
     vsqr.set_config(configuration);

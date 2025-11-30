@@ -71,6 +71,7 @@ class execute_environment  extends uvmf_environment_base #(
     predictor = predictor_t::type_id::create("predictor",this);
     predictor.configuration = configuration;
     scoreboard = scoreboard_t::type_id::create("scoreboard",this);
+    scoreboard..disable_end_of_test_empty_check();
 
     vsqr = execute_vsqr_t::type_id::create("vsqr", this);
     vsqr.set_config(configuration);

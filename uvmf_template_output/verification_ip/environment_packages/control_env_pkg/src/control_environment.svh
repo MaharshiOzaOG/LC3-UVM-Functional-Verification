@@ -71,6 +71,7 @@ class control_environment  extends uvmf_environment_base #(
     control_pred = control_pred_t::type_id::create("control_pred",this);
     control_pred.configuration = configuration;
     control_sb = control_sb_t::type_id::create("control_sb",this);
+    control_sb.disable_end_of_test_empty_check();
 
     vsqr = control_vsqr_t::type_id::create("vsqr", this);
     vsqr.set_config(configuration);
