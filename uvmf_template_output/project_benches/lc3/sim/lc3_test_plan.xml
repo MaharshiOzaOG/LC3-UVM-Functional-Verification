@@ -192,71 +192,6 @@
    </Borders>
    <Font ss:FontName="Arial" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
-   </Borders>
-   <Font ss:FontName="Arial"/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s83">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
-   </Borders>
-   <Font ss:FontName="Arial"/>
-   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s85">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s87">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Arial"/>
-   <Interior/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s88">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Arial" x:Family="Swiss"/>
-   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
-   <NumberFormat/>
-  </Style>
-  <Style ss:ID="s89">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Arial"/>
-   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
-   <NumberFormat/>
-  </Style>
   <Style ss:ID="s90">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -296,7 +231,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="AHB to WB Bridge Test Plan">
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="52.8" ss:DefaultRowHeight="12">
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="67.8"/>
    <Column ss:AutoFitWidth="0" ss:Width="155.39999999999998"/>
@@ -348,7 +283,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="37.049999999999997">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">LC3 operations test</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">LC3 instructions test</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Checking for various LC3 instructions</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">imem_transaction_cg</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Covergroup</Data></Cell>
@@ -360,9 +295,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.1</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 ADD Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for ADD instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::ADD_opcode</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3  Instructions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for ALL instructions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::Instr_opcode</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
@@ -370,11 +305,11 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="25.049999999999997">
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.2</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 AND Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for AND instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::AND_opcode</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3  Instructions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for ADD imm mode instructions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::ADDI_cp</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
@@ -382,149 +317,17 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
+   <Row ss:AutoFitHeight="0" ss:Height="14.55">
     <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.3</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 NOT Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for NOT instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::NOT_opcode</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3  Instructions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for AND imm mode instructions</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::ANDI_cp</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.4</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 LD Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for LD instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::LD_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.5</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 LDR Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for LDR instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::LDR_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999" ss:StyleID="s85">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.6</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 LDI Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for LDI instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::LDI_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.7</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 LEA Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for LEA instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::LEA_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="13.049999999999999">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.8</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 ST Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for ST instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::ST_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="35.550000000000004">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.9</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 STR Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for STR instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::STR_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="51">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.10</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 STI Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for STI instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::STI_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.11</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 BR Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for BR instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::BR_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">1.1.12</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3 JMP Instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Checking coverage for JMP instruction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">LC3_coverage::JMP_opcode</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Coverpoint</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="Number">100</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">group10</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
     <Cell ss:StyleID="s90"/>
@@ -671,8 +474,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
