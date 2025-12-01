@@ -7,6 +7,7 @@ class control_seq_test extends test_top;
 
 	virtual function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
+        $display("OVERRIDING RESONDER SEQUENCE");
         imem_responder_sequence::type_id::set_type_override(control_instructions::get_type());
 	endfunction
 endclass
