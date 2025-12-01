@@ -195,7 +195,7 @@ rand writeback_env_config_t writeback_env_config;
   // Interface initialization for local agents
      imem_agent_config.initialize( interface_activity[12], {environment_path,".imem_agent"}, interface_names[12]);
      imem_agent_config.initiator_responder = RESPONDER;
-     // imem_agent_config.has_coverage = 1;
+     imem_agent_config.has_coverage = 1;
      data_mem_agent_config.initialize( interface_activity[13], {environment_path,".data_mem_agent"}, interface_names[13]);
      data_mem_agent_config.initiator_responder = RESPONDER;
      // data_mem_agent_config.has_coverage = 1;
