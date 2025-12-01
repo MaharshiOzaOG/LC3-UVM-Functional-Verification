@@ -19,38 +19,89 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
   `uvm_component_utils( imem_transaction_coverage )
 
   T coverage_trans;
-
+  bit [2:0] src_reg;
   // pragma uvmf custom class_item_additional begin
+  protected inst_type          op_cov;
+  protected bit [2:0]          data_reg_cov; // Unified SR and DR
+  protected bit [2:0]          base_reg_cov; // Base Register
+  protected bit [8:0]          off9_cov;
+  protected bit [5:0]          off6_cov;
+
+  protected bit [2:0]          nzp_cov;      // NEW: For Branch Condition Codes
   // pragma uvmf custom class_item_additional end
   
   // ****************************************************************************
   covergroup imem_transaction_cg;
     // pragma uvmf custom covergroup begin
     // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
-    option.auto_bin_max=1024;
+    // option.auto_bin_max=1024;
     option.per_instance=1;
-    PC: coverpoint coverage_trans.PC;
-    instrmem_rd: coverpoint coverage_trans.instrmem_rd;
-    Instr_dout: coverpoint coverage_trans.Instr_dout;
-    complete_instr: coverpoint coverage_trans.complete_instr;
-    operation_type: coverpoint coverage_trans.operation_type;
-    instruction_type: coverpoint coverage_trans.instruction_type;
-    npc: coverpoint coverage_trans.npc;
-    instr_opcode: coverpoint coverage_trans.instr_opcode;
-    dest_reg: coverpoint coverage_trans.dest_reg;
-    src_reg1: coverpoint coverage_trans.src_reg1;
-    src_reg2: coverpoint coverage_trans.src_reg2;
-    imm5: coverpoint coverage_trans.imm5;
-    mem_dest_reg: coverpoint coverage_trans.mem_dest_reg;
-    mem_src_reg: coverpoint coverage_trans.mem_src_reg;
-    pcoffset9: coverpoint coverage_trans.pcoffset9;
-    signed_pcoffset9: coverpoint coverage_trans.signed_pcoffset9;
-    baser: coverpoint coverage_trans.baser;
-    pcoffset6: coverpoint coverage_trans.pcoffset6;
-    control_nzp: coverpoint coverage_trans.control_nzp;
-    control_pcoffset9: coverpoint coverage_trans.control_pcoffset9;
-    control_baser: coverpoint coverage_trans.control_baser;
-    // pragma uvmf custom covergroup end
+    option.name = "memory_cross_coverage";
+
+    // 1. Opcode Coverpoint
+    cp_op: coverpoint op_cov {
+      bins pcrel_ind[] = {LD, ST, LDI, STI, LEA}; // Uses Offset9
+      bins base_off[]  = {LDR, STRR};             // Uses BaseR + Offset6
+      bins control[]   = {BR, JMP}; // Added Control Opcodes
+    }
+
+    // 2. Data Register (SR or DR) Coverpoint
+    // We sample the normalized 'data_reg_cov' here
+    cp_data_reg: coverpoint data_reg_cov {
+      bins regs[] = {[0:7]};
+    }
+
+    // 3. Base Register Coverpoint
+    cp_base_reg: coverpoint base_reg_cov {
+      bins regs[] = {[0:7]};
+    }
+
+    // 4. Offset 9 Coverpoint
+    cp_off9: coverpoint off9_cov {
+      option.auto_bin_max = 512; // Ensure bin for every value (0-511)
+    }
+
+    // 5. Offset 6 Coverpoint
+    cp_off6: coverpoint off6_cov {
+      option.auto_bin_max = 64;  // Ensure bin for every value (0-63)
+    }
+
+    // 6. NZP (New for BR)
+    cp_nzp: coverpoint nzp_cov {
+       bins valid_nzp[] = {[1:7]}; // 0 is usually NOP, 1-7 are valid branches
+    }
+
+    // ----------------------------------------------------------------------
+    // CROSS COVERAGE
+    // ----------------------------------------------------------------------
+
+    // CROSS 1: PC-Relative & Indirect (LD, ST, LDI, STI, LEA)
+    // Structure: Opcode x DataReg x Offset9
+    cross_pcrel_ind: cross cp_op, cp_data_reg, cp_off9 {
+      // Only apply this cross to the relevant instructions
+      ignore_bins valid_ops = !binsof(cp_op) intersect {LD, ST, LDI, STI, LEA};
+    }
+
+    // CROSS 2: Base + Offset (LDR, STRR)
+    // Structure: Opcode x DataReg x BaseReg x Offset6
+    cross_base_off: cross cp_op, cp_data_reg, cp_base_reg, cp_off6 {
+      // Only apply this cross to LDR and STRR
+      ignore_bins valid_ops = !binsof(cp_op) intersect {LDR, STRR};
+    }
+    
+    // CROSS 3: Control Branch (BR)
+    // Opcode x NZP x Offset9
+    cross_br: cross cp_op, cp_nzp, cp_off9 {
+       // Only for BR
+       ignore_bins invalid = !binsof(cp_op) intersect {BR};
+    }
+
+    // CROSS 4: Control Jump (JMP)
+    // Opcode x BaseReg
+    cross_jmp: cross cp_op, cp_base_reg {
+       // Only for JMP
+       ignore_bins invalid = !binsof(cp_op) intersect {JMP};
+    }
   endgroup
 
   // ****************************************************************************
@@ -79,7 +130,43 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
   //
   virtual function void write (T t);
     `uvm_info("COV","Received transaction",UVM_HIGH);
-    coverage_trans = t;
+    // coverage_trans = t;
+    // 1. Copy simple fields
+    op_cov   = t.instruction_type;
+    off6_cov = t.pcoffset6;
+    // off9_cov = t.pcoffset9;
+
+
+    // --- OFFSET 9 Handling ---
+    if (t.instruction_type == BR) begin
+      // For BR, use the control offset
+      off9_cov = t.control_pcoffset9;
+    end
+    else begin
+      // For LD/ST/etc, use the standard pcoffset9
+      off9_cov = t.pcoffset9;
+    end
+    
+    
+    if (t.instruction_type == BR) nzp_cov = t.control_nzp;
+
+    // 2. Normalize "Data Register" (SR or DR) logic
+    // Based on your specific transaction definitions:
+    if (t.instruction_type == ST || t.instruction_type == STI || t.instruction_type == STRR) begin
+      // For ST/STI, the Source Register is in src_reg1
+      data_reg_cov = t.src_reg1;
+    end
+    else begin
+      // For LD, LDI, LEA, LDR, the reg of interest is in dest_reg
+      // (Recall: Your STRR code put SR into dest_reg)
+      data_reg_cov = t.dest_reg;
+    end
+
+    // 3. Normalize "Base Register" logic
+    // For LDR/STRR, BaseR is always in src_reg1
+    base_reg_cov = t.baser;
+
+    // 4. Sample the coverage
     imem_transaction_cg.sample();
   endfunction
 
