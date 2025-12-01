@@ -47,7 +47,7 @@ endif
 
 
 # Set test case specific Variables
-TEST_NAME            ?= memory_seq_test #change this to control_seq_test or memory_seq_test to test those operations
+TEST_NAME            ?= control_seq_test#change this to control_seq_test or memory_seq_test to test those operations
 
 TEST_SEED            ?= random
 UVM_CLI_ARGS         = 
