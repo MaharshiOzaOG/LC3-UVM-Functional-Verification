@@ -47,7 +47,7 @@ endif
 
 
 # Set test case specific Variables
-TEST_NAME            ?= control_seq_test#change this to control_seq_test or memory_seq_test to test those operations
+TEST_NAME            ?= memory_seq_test#change this to control_seq_test or memory_seq_test to test those operations
 
 TEST_SEED            ?= random
 UVM_CLI_ARGS         = 
@@ -224,6 +224,20 @@ convert_testplan:
 merge_coverage:
 	vcover merge -stats=none -strip 0 -totals sim_and_testplan_merged.ucdb ./*.ucdb 
 	-coverage open ./sim_and_testplan_merged.ucdb || echo "Note: coverage GUI not available. Merged coverage database created: sim_and_testplan_merged.ucdb"
+
+cli_123:
+	make cli
+
+# open_gui:
+# 	vsim &
+# 	add testbrowser sim_and_testplan_merged.ucdb
+# 	coverage open ./sim_and_testplan_merged.ucdb
+
+open_gui:
+	@printf "add testbrowser sim_and_testplan_merged.ucdb\ncoverage open ./sim_and_testplan_merged.ucdb\n" > $(PWD)/open_gui.do
+	@vsim -gui -do $(PWD)/open_gui.do &
+
+coverage_report: convert_testplan cli_123 merge_coverage open_gui
 
 # pragma uvmf custom additional_targets begin
 # pragma uvmf custom additional_targets end
