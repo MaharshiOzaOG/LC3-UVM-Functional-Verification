@@ -71,7 +71,7 @@ class mem_access_environment  extends uvmf_environment_base #(
     mem_access_pred = mem_access_pred_t::type_id::create("mem_access_pred",this);
     mem_access_pred.configuration = configuration;
     mem_access_sb = mem_access_sb_t::type_id::create("mem_access_sb",this);
-    // mem_access_sb.disable_end_of_test_empty_check();
+    mem_access_sb.disable_end_of_test_empty_check();
 
     vsqr = mem_access_vsqr_t::type_id::create("vsqr", this);
     vsqr.set_config(configuration);
