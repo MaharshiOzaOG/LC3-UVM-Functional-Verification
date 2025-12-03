@@ -26,7 +26,7 @@ task body();
 
 
       if (!req.randomize() with {
-        instruction_type inside {ST,STRR,STI,LD,LDR,LDI,LEA};
+        instruction_type inside {ST,STR,STI,LD,LDR,LDI,LEA};
         dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
         src_reg1 inside {[0:7]};     // Used for BaseR
         src_reg2 inside {[0:7]};
@@ -81,10 +81,10 @@ task body();
                              req.pcoffset9};    // Offset9
         end
 
-        STRR: begin
+        STR: begin
           // STR: Store Base+Offset
           // Format: 0111 SR BaseR PCOffset6
-          req.instruction_type = STRR;
+          req.instruction_type = STR;
           req.operation_type = MEMORY_OPERATIONS;
           instruction = {4'h7,                // Opcode (7)
                              req.dest_reg,          // SR (Data to store)
@@ -133,7 +133,7 @@ task body();
     
 //     // Arrays to hold the Opcodes we want to iterate over
 //     inst_type ops_pcrel[] = {ST, LD, STI, LDI, LEA};
-//     inst_type ops_base[]  = {LDR, STRR};
+//     inst_type ops_base[]  = {LDR, STR};
 
 //     // -----------------------------------------------------------------------
 //     // 1. INITIALIZATION (Your Fixed Pattern)
@@ -195,7 +195,7 @@ task body();
 //       end
 //     end
 
-//     // --- GROUP B: Base + Offset Ops (LDR, STRR) ---
+//     // --- GROUP B: Base + Offset Ops (LDR, STR) ---
 //     for (dr_sr_i = 0; dr_sr_i <= 7; dr_sr_i++) begin
 //       for (base_r_i = 0; base_r_i <= 7; base_r_i++) begin
 //         for (pcoffset6_i = 0; pcoffset6_i <= 63; pcoffset6_i++) begin
@@ -223,7 +223,7 @@ task body();
 
 //                 // PACK THE HEX
 //                 case (req.instruction_type)
-//                     STRR: req.Instr_dout = {4'h7, req.dest_reg, req.baser, req.pcoffset6};
+//                     STR: req.Instr_dout = {4'h7, req.dest_reg, req.baser, req.pcoffset6};
 //                     LDR:  req.Instr_dout = {4'h6, req.dest_reg, req.baser, req.pcoffset6};
 //                 endcase
 
@@ -309,11 +309,11 @@ task body();
 // //   //         //     // Loop 4: Iterate through all PCOffset6 values (64 combinations)
 // //   //         //     for (pcoffset6_val = 0; pcoffset6_val <= 63; pcoffset6_val++) begin
 
-// //   //         //         // --- Instructions using DR/SR, BaseR, and PCOffset6 (LDR, STRR) ---
+// //   //         //         // --- Instructions using DR/SR, BaseR, and PCOffset6 (LDR, STR) ---
 
-// //   //         //         // 6. STRR: Store Base+Offset (Opcode 7)
+// //   //         //         // 6. STR: Store Base+Offset (Opcode 7)
 // //   //         //         start_item(req);
-// //   //         //         req.instruction_type = STRR;
+// //   //         //         req.instruction_type = STR;
 // //   //         //         req.operation_type = MEMORY_OPERATIONS;
 // //   //         //         req.dest_reg = dr_sr_val;     // SR
 // //   //         //         req.src_reg1 = base_r_val;    // BaseR

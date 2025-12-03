@@ -159,15 +159,6 @@ end
        // Bi-directional signals
  
      end
-
-  // always @(posedge clock_i) begin
-  //   wait(reset_i == 0);
-  //   if (instrmem_rd_i === 'x) begin
-  //     complete_instr_o = 1'b0;
-  //   end else begin
-  //     complete_instr_o = 1'b1;
-  //   end
-  // end
 // pragma uvmf custom reset_condition_and_response end
 
   // pragma uvmf custom interface_item_additional begin

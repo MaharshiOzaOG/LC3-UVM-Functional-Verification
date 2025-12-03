@@ -125,10 +125,7 @@ end
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( decode_out_monitor_struct );
-                                                                 
- 
-      proxy.notify_transaction( decode_out_monitor_struct );
- 
+      proxy.notify_transaction( decode_out_monitor_struct ); 
     end                                                                                    
   end                                                                                       
 

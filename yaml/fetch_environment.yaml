@@ -10,24 +10,14 @@ uvmf:
         type: fetch_out
       analysis_components:
       - name: fetch_pred
-        parameters: []
         type: fetch_predictor
-      analysis_exports: []
-      analysis_ports: []
-      config_constraints: []
-      config_vars: []
       existing_library_component: 'False'
-      hvl_pkg_parameters: []
-      non_uvmf_components: []
-      parameters: []
-      qvip_memory_agents: []
       imports:
       - name: lc3_prediction_pkg
       scoreboards:
       - name: fetch_sb
         sb_type: uvmf_in_order_scoreboard
         trans_type: fetch_out_transaction
-      subenvs: []
       tlm_connections:
       - driver: agent_in.monitored_ap
         receiver: fetch_pred.fetch_in_agent_ae

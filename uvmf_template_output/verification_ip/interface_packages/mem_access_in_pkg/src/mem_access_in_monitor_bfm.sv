@@ -124,10 +124,7 @@ end
     forever begin                                                                        
       @(posedge clk_i);  
       do_monitor( mem_access_in_monitor_struct );
-                                                                 
- 
       proxy.notify_transaction( mem_access_in_monitor_struct );
- 
     end                                                                                    
   end                                                                                       
 

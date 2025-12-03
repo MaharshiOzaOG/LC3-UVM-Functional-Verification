@@ -18,9 +18,9 @@ class fetch_out_transaction  extends uvmf_transaction_base;
 
   `uvm_object_utils( fetch_out_transaction )
 
-  logic [15:0] npc ;
-  logic [15:0] pc ;
-  logic instrmem_rd ;
+  bit [15:0] npc ;
+  bit [15:0] pc ;
+  bit instrmem_rd ;
 
   //Constraints for the transaction variables:
 

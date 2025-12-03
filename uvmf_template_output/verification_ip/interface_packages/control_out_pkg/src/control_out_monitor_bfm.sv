@@ -135,10 +135,7 @@ end
     forever begin                                                                        
       @(posedge clk_i);  
       do_monitor( control_out_monitor_struct );
-                                                                 
- 
-      proxy.notify_transaction( control_out_monitor_struct );
- 
+      proxy.notify_transaction( control_out_monitor_struct ); 
     end                                                                                    
   end                                                                                       
 
@@ -198,11 +195,7 @@ end
     // code example shows how to wait for a synchronous flow control signal.  This
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    // @(posedge clk_i);
-    // @(posedge clk_i);
-    // @(posedge clk_i);
-    // @(posedge clk_i);   
+    // the next transfer. One clock cycle is consumed between calls to do_monitor.  
     control_out_monitor_struct.enable_updatePC = enable_updatePC_i; 
     control_out_monitor_struct.enable_fetch = enable_fetch_i;  //
     control_out_monitor_struct.enable_decode = enable_decode_i;  //

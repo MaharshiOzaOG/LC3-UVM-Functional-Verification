@@ -4,14 +4,6 @@ uvmf:
       clock: clk
       reset: rst
       reset_assertion_level: 'True'
-      config_constraints: []
-      config_vars: []
-      gen_inbound_streaming_driver: 'False'
-      hdl_pkg_parameters: []
-      hdl_typedefs: []
-      hvl_pkg_parameters: []
-      hvl_typedefs: []
-      parameters: []
       ports:
       - name: dmem_addr
         dir: input
@@ -29,33 +21,27 @@ uvmf:
         dir: input
         width: '16'
         reset_value: '''b0'
-      transaction_constraints: []
       transaction_vars:
       - name: dmem_addr
         type: bit [15:0]
         iscompare: 'True'
         isrand: 'False'
         comment: ''
-        unpacked_dimension: ''
       - name: dmem_din
         type: bit [15:0]
         iscompare: 'True'
         isrand: 'False'
         comment: ''
-        unpacked_dimension: ''
       - name: dmem_rd
         type: bit
         iscompare: 'True'
         isrand: 'False'
         comment: ''
-        unpacked_dimension: ''
       - name: memout
         type: bit [15:0]
         iscompare: 'True'
         isrand: 'False'
         comment: ''
-        unpacked_dimension: ''
-      use_dpi_link: 'False'
 
 
 

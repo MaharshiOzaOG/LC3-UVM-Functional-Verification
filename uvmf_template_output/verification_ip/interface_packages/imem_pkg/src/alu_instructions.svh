@@ -24,7 +24,7 @@ class alu_instructions extends imem_responder_sequence;
 
 
       if (!req.randomize() with {
-        instruction_type inside {ADD,ADDI,AND,ANDI,NOT/*,ST,STRR,STI,LD,LDR,LDI,LEA,BR,JMP*/};
+        instruction_type inside {ADD,ADDI,AND,ANDI,NOT};
         // operation_type == MEMORY_OPERATIONS;
         dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
         src_reg1 inside {[0:7]};     // Used for BaseR

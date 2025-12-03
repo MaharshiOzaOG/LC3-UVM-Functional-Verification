@@ -120,7 +120,7 @@ end
   // ****************************************************************************              
   initial begin                                                                             
     @go;                                                                                   
-    do_wait_for_reset();                                                                                 
+    // do_wait_for_reset();                                                                                 
     forever begin                                                                        
       @(posedge clk_i);  
       do_monitor( data_mem_monitor_struct );
@@ -184,7 +184,6 @@ end
     // pragma uvmf custom do_monitor end
   endtask         
   
- 
 endinterface
 
 // pragma uvmf custom external begin

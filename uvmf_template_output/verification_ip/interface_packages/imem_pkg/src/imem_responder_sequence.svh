@@ -30,7 +30,7 @@ class imem_responder_sequence
 
   // virtual task genearate_random_sequence();
   //   if (!req.randomize() with {
-  //       instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STRR,STI,LD,LDR,LDI,LEA,BR,JMP};
+  //       instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STR,STI,LD,LDR,LDI,LEA,BR,JMP};
   //       dest_reg inside {[0:7]};     
   //       src_reg1 inside {[0:7]};
   //       src_reg2 inside {[0:7]};
@@ -61,7 +61,7 @@ class imem_responder_sequence
   //     encode_instruction();
 
   //     // if (!req.randomize() with {
-  //     //   instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STRR,STI,LD,LDR,LDI,LEA,BR,JMP};
+  //     //   instruction_type inside {ADD,ADDI,AND,ANDI,NOT,ST,STR,STI,LD,LDR,LDI,LEA,BR,JMP};
   //     //   // operation_type == MEMORY_OPERATIONS;
         
   //     //   dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
@@ -96,10 +96,10 @@ class imem_responder_sequence
   //     //                     6'b000000};
   //     //   end
 
-  //     //   STRR: begin
+  //     //   STR: begin
   //     //     // STR: Store Base+Offset
   //     //     // Format: 0111 SR BaseR PCOffset6
-  //     //     req.instruction_type = STRR;
+  //     //     req.instruction_type = STR;
   //     //     req.operation_type = MEMORY_OPERATIONS;
   //     //     instruction = {4'h7,                // Opcode (7)
   //     //                        req.dest_reg,          // SR (Data to store)

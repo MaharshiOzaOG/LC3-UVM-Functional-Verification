@@ -77,14 +77,8 @@ class imem_monitor  extends uvmf_monitor_base #(
     trans.end_time = $time;                                                                 
     time_stamp = trans.end_time;
   
-    // -----------------------------------------------------------------------
-   // MANUAL DECODING BLOCK
-   // UVMF captured the raw instruction (Instr_dout), but we must manually 
-   // decode it to populate the fields (opcode, regs, offsets) for Coverage.
-   // -----------------------------------------------------------------------
-   case (trans.Instr_dout[15:12]) // Look at Top 4 bits (Opcode)
+   case (trans.Instr_dout[15:12])
       
-      // --- PC-Relative Memory Ops (Uses PCOffset9) ---
       4'b0010: begin // LD
          trans.instruction_type = LD;
          trans.dest_reg  = trans.Instr_dout[11:9]; // DR
@@ -115,10 +109,6 @@ class imem_monitor  extends uvmf_monitor_base #(
          trans.pcoffset9 = trans.Instr_dout[8:0];  // Offset9
       end
 
-      // --- Base + Offset Memory Ops (Uses BaseR + PCOffset6) ---
-      // Your sequence uses 'baser' and 'pcoffset6' for these. 
-      // We must extract bits [8:6] into 'trans.baser' for coverage to work.
-
       4'b0110: begin // LDR
          trans.instruction_type = LDR;
          trans.dest_reg  = trans.Instr_dout[11:9]; // DR
@@ -126,14 +116,13 @@ class imem_monitor  extends uvmf_monitor_base #(
          trans.pcoffset6 = trans.Instr_dout[5:0];  // Offset6
       end
 
-      4'b0111: begin // STRR
-         trans.instruction_type = STRR;
+      4'b0111: begin // STR
+         trans.instruction_type = STR;
          trans.src_reg1  = trans.Instr_dout[11:9]; // SR
          trans.baser     = trans.Instr_dout[8:6];  // BaseR (Bits 8:6)
          trans.pcoffset6 = trans.Instr_dout[5:0];  // Offset6
       end
 
-      // --- Other Ops (for completeness) ---
       4'b0001: begin // ADD
           trans.instruction_type = ADD;
           trans.dest_reg = trans.Instr_dout[11:9];
@@ -151,10 +140,10 @@ class imem_monitor  extends uvmf_monitor_base #(
           trans.dest_reg = trans.Instr_dout[11:9];
           trans.src_reg1 = trans.Instr_dout[8:6];
       end
-      // --- CONTROL OPERATIONS ---
+
       4'b0000: begin // BR
           trans.instruction_type = BR;
-          trans.control_nzp      = trans.Instr_dout[11:9]; // Extract NZP
+          trans.control_nzp      = NZP'(trans.Instr_dout[11:9]); // Extract NZP
           trans.control_pcoffset9= trans.Instr_dout[8:0];  // Extract Offset
       end
 
@@ -169,8 +158,6 @@ class imem_monitor  extends uvmf_monitor_base #(
       end
    endcase
    // -----------------------------------------------------------------------
-
-
     analyze(trans);                                                                         
   endfunction  
 

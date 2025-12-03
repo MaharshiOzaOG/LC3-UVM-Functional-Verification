@@ -190,35 +190,13 @@ end
        );// pragma tbx xtf  
        // 
        // Members within the decode_in_initiator_struct:
-       //   op_t ins_type ;
-       //   src1_f sr1 ;
-       //   src2_f sr2 ;
-       //   dest_f dr ;
-       //   baser_f baser ;
-       //   p_f p ;
        //   bit enable_decode ;
        //   bit[15:0] instr_dout ;
        //   bit[15:0] npc_in ;
-       //   pcoffset9_f pcoffset9 ;
-       //   pcoffset6_f pcoffset6 ;
-       //   imm5_f imm5 ;
-       //   n_f n ;
-       //   z_f z ;
        // Members within the decode_in_responder_struct:
-       //   op_t ins_type ;
-       //   src1_f sr1 ;
-       //   src2_f sr2 ;
-       //   dest_f dr ;
-       //   baser_f baser ;
-       //   p_f p ;
        //   bit enable_decode ;
        //   bit[15:0] instr_dout ;
        //   bit[15:0] npc_in ;
-       //   pcoffset9_f pcoffset9 ;
-       //   pcoffset6_f pcoffset6 ;
-       //   imm5_f imm5 ;
-       //   n_f n ;
-       //   z_f z ;
        initiator_struct = decode_in_initiator_struct;
        //
        // Reference code;
@@ -267,35 +245,13 @@ bit first_transfer=1;
        input decode_in_responder_s decode_in_responder_struct 
        );// pragma tbx xtf   
   // Variables within the decode_in_initiator_struct:
-  //   op_t ins_type ;
-  //   src1_f sr1 ;
-  //   src2_f sr2 ;
-  //   dest_f dr ;
-  //   baser_f baser ;
-  //   p_f p ;
   //   bit enable_decode ;
   //   bit[15:0] instr_dout ;
   //   bit[15:0] npc_in ;
-  //   pcoffset9_f pcoffset9 ;
-  //   pcoffset6_f pcoffset6 ;
-  //   imm5_f imm5 ;
-  //   n_f n ;
-  //   z_f z ;
   // Variables within the decode_in_responder_struct:
-  //   op_t ins_type ;
-  //   src1_f sr1 ;
-  //   src2_f sr2 ;
-  //   dest_f dr ;
-  //   baser_f baser ;
-  //   p_f p ;
   //   bit enable_decode ;
   //   bit[15:0] instr_dout ;
   //   bit[15:0] npc_in ;
-  //   pcoffset9_f pcoffset9 ;
-  //   pcoffset6_f pcoffset6 ;
-  //   imm5_f imm5 ;
-  //   n_f n ;
-  //   z_f z ;
        // Reference code;
        //    How to wait for signal value
        //      while (control_signal == 1'b1) @(posedge clock_i);

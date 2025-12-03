@@ -2,16 +2,11 @@ uvmf:
   interfaces:
     imem:
       clock: clock
-      config_constraints: []
-      config_vars: []
-      existing_library_component: 'True'
-      gen_inbound_streaming_driver: 'False'
-      hdl_pkg_parameters: []
       hdl_typedefs:
       - name: op_type
         type: enum bit [1:0] {ALU_OPERATIONS,MEMORY_OPERATIONS,CONTROL_OPERATIONS}
       - name: inst_type
-        type: enum bit [3:0] {ADD,ADDI,AND,ANDI,NOT,LD,LDR,LDI,LEA,ST,STRR,STI,BR,JMP}
+        type: enum bit [3:0] {ADD,ADDI,AND,ANDI,NOT,LD,LDR,LDI,LEA,ST,STR,STI,BR,JMP}
       - name: NZP
         type: enum bit [2:0] {BRP=3'b001,BRZ,BRZP,BRN,BRNP,BRNZ,BRNZP}
       - name: src_dst_reg

@@ -29,20 +29,9 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
     // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
     option.auto_bin_max=1024;
     option.per_instance=1;
-    ins_type: coverpoint coverage_trans.ins_type;
-    sr1: coverpoint coverage_trans.sr1;
-    sr2: coverpoint coverage_trans.sr2;
-    dr: coverpoint coverage_trans.dr;
-    baser: coverpoint coverage_trans.baser;
-    p: coverpoint coverage_trans.p;
     enable_decode: coverpoint coverage_trans.enable_decode;
     instr_dout: coverpoint coverage_trans.instr_dout;
     npc_in: coverpoint coverage_trans.npc_in;
-    pcoffset9: coverpoint coverage_trans.pcoffset9;
-    pcoffset6: coverpoint coverage_trans.pcoffset6;
-    imm5: coverpoint coverage_trans.imm5;
-    n: coverpoint coverage_trans.n;
-    z: coverpoint coverage_trans.z;
     // pragma uvmf custom covergroup end
   endgroup
 

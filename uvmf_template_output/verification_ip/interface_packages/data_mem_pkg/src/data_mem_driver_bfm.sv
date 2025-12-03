@@ -292,15 +292,13 @@ bit first_transfer=1;
        //    Responder inout signals
     
   while (rst_i === 1) @(posedge clk_i);
-  
   if (!first_transfer) begin
     // Perform transfer response here.   
     // Reply using data recieved in the data_mem_responder_struct.
     Data_dout_o <= data_mem_responder_struct.Data_dout;
     if(Data_addr_i === 'z)begin
       complete_data_o = 0;
-    end
-    else begin
+    end else begin
       complete_data_o = 1;
     end
     // @(posedge clk_i);

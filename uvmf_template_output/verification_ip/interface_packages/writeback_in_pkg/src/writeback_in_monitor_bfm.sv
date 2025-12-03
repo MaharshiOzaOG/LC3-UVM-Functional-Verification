@@ -132,10 +132,7 @@ end
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( writeback_in_monitor_struct );
-                                                                 
- 
       proxy.notify_transaction( writeback_in_monitor_struct );
- 
     end                                                                                    
   end                                                                                       
 
