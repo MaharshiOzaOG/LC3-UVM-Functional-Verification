@@ -37,8 +37,12 @@ uvmf_testlist:
   tests:
     - testbench: lc3
 # pragma uvmf custom regression_suite begin
-    - name: test_top
-      repeat: 3
+    - name: alu_seq_test
+      seeds: [368284781]
+    - name: control_seq_test
+      seeds: [3368036630]
+    - name: memory_seq_test
+      seeds: [2023179633]
 # pragma uvmf custom regression_suite end
 
 

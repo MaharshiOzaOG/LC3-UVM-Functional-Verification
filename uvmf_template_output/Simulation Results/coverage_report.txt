@@ -1,0 +1,1026 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /imem_pkg
+=== Design Unit: work.imem_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      3        na        na   100.00%
+        Coverpoints/Crosses         13        na        na        na
+            Covergroup Bins        181       181         0   100.00%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /imem_pkg/imem_transaction_coverage/alu_transaction_cg 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    93         93          -                      
+    missing/total bins:                                     0         93          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint alu_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ADD                                           184          1          -    Covered              
+        bin AND                                           253          1          -    Covered              
+        bin NOT                                            94          1          -    Covered              
+    Coverpoint ADDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addi                                           91          1          -    Covered              
+    Coverpoint ANDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin andi                                          149          1          -    Covered              
+    Coverpoint DR_cp                                  100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dest_regs[0]                                   63          1          -    Covered              
+        bin dest_regs[1]                                   63          1          -    Covered              
+        bin dest_regs[2]                                   74          1          -    Covered              
+        bin dest_regs[3]                                   72          1          -    Covered              
+        bin dest_regs[4]                                   70          1          -    Covered              
+        bin dest_regs[5]                                   54          1          -    Covered              
+        bin dest_regs[6]                                   69          1          -    Covered              
+        bin dest_regs[7]                                   66          1          -    Covered              
+    Coverpoint SR1_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr1_regs[0]                                    52          1          -    Covered              
+        bin sr1_regs[1]                                    72          1          -    Covered              
+        bin sr1_regs[2]                                    59          1          -    Covered              
+        bin sr1_regs[3]                                    65          1          -    Covered              
+        bin sr1_regs[4]                                    78          1          -    Covered              
+        bin sr1_regs[5]                                    72          1          -    Covered              
+        bin sr1_regs[6]                                    60          1          -    Covered              
+        bin sr1_regs[7]                                    73          1          -    Covered              
+    Coverpoint SR2_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr2_regs[0]                                    95          1          -    Covered              
+        bin sr2_regs[1]                                    43          1          -    Covered              
+        bin sr2_regs[2]                                    41          1          -    Covered              
+        bin sr2_regs[3]                                    55          1          -    Covered              
+        bin sr2_regs[4]                                    38          1          -    Covered              
+        bin sr2_regs[5]                                    56          1          -    Covered              
+        bin sr2_regs[6]                                    57          1          -    Covered              
+        bin sr2_regs[7]                                    52          1          -    Covered              
+    Cross alu_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <dest_regs[7],sr1_regs[7]>                 17          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[7]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[7]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[7]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[7]>                 10          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[7]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[7]>                  9          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[7]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[6]>                  9          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[6]>                 10          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[6]>                  5          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[6]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[5]>                  2          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[5]>                 13          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[5]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[5]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[5]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[4]>                 14          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[4]>                 22          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[3]>                  7          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[3]>                  9          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[3]>                 18          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[3]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[3]>                  5          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[2]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[2]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[2]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[2]>                 14          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[1]>                 13          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[1]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[1]>                  7          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[1]>                 10          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[1]>                 11          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[1]>                 14          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[0]>                  7          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[0]>                  1          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[0]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[0]>                  3          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[0]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[0]>                 12          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[0]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[0]>                 10          1          -    Covered              
+ Covergroup instance alu_transaction_cg_uvm_test_top.environment.imem_agent.imem_agent_coverage 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    93         93          -                      
+    missing/total bins:                                     0         93          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint alu_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ADD                                           184          1          -    Covered              
+        bin AND                                           253          1          -    Covered              
+        bin NOT                                            94          1          -    Covered              
+    Coverpoint ADDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addi                                           91          1          -    Covered              
+    Coverpoint ANDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin andi                                          149          1          -    Covered              
+    Coverpoint DR_cp                                  100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dest_regs[0]                                   63          1          -    Covered              
+        bin dest_regs[1]                                   63          1          -    Covered              
+        bin dest_regs[2]                                   74          1          -    Covered              
+        bin dest_regs[3]                                   72          1          -    Covered              
+        bin dest_regs[4]                                   70          1          -    Covered              
+        bin dest_regs[5]                                   54          1          -    Covered              
+        bin dest_regs[6]                                   69          1          -    Covered              
+        bin dest_regs[7]                                   66          1          -    Covered              
+    Coverpoint SR1_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr1_regs[0]                                    52          1          -    Covered              
+        bin sr1_regs[1]                                    72          1          -    Covered              
+        bin sr1_regs[2]                                    59          1          -    Covered              
+        bin sr1_regs[3]                                    65          1          -    Covered              
+        bin sr1_regs[4]                                    78          1          -    Covered              
+        bin sr1_regs[5]                                    72          1          -    Covered              
+        bin sr1_regs[6]                                    60          1          -    Covered              
+        bin sr1_regs[7]                                    73          1          -    Covered              
+    Coverpoint SR2_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr2_regs[0]                                    95          1          -    Covered              
+        bin sr2_regs[1]                                    43          1          -    Covered              
+        bin sr2_regs[2]                                    41          1          -    Covered              
+        bin sr2_regs[3]                                    55          1          -    Covered              
+        bin sr2_regs[4]                                    38          1          -    Covered              
+        bin sr2_regs[5]                                    56          1          -    Covered              
+        bin sr2_regs[6]                                    57          1          -    Covered              
+        bin sr2_regs[7]                                    52          1          -    Covered              
+    Cross alu_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <dest_regs[7],sr1_regs[7]>                 17          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[7]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[7]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[7]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[7]>                 10          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[7]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[7]>                  9          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[7]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[6]>                  9          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[6]>                 10          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[6]>                  5          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[6]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[5]>                  2          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[5]>                 13          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[5]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[5]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[5]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[4]>                 14          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[4]>                 22          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[3]>                  7          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[3]>                  9          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[3]>                 18          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[3]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[3]>                  5          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[2]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[2]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[2]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[2]>                 14          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[1]>                 13          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[1]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[1]>                  7          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[1]>                 10          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[1]>                 11          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[1]>                 14          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[0]>                  7          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[0]>                  1          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[0]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[0]>                  3          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[0]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[0]>                 12          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[0]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[0]>                 10          1          -    Covered              
+ TYPE /imem_pkg/imem_transaction_coverage/mem_transaction_cg 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    71         71          -                      
+    missing/total bins:                                     0         71          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint mem_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin LD                                             69          1          -    Covered              
+        bin LDR                                            68          1          -    Covered              
+        bin LDI                                            78          1          -    Covered              
+        bin LEA                                            77          1          -    Covered              
+        bin ST                                             54          1          -    Covered              
+        bin STR                                            77          1          -    Covered              
+        bin STI                                            60          1          -    Covered              
+    Coverpoint mem_instr_reg                          100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dr_sr_regs[0]                                  46          1          -    Covered              
+        bin dr_sr_regs[1]                                  67          1          -    Covered              
+        bin dr_sr_regs[2]                                  55          1          -    Covered              
+        bin dr_sr_regs[3]                                  44          1          -    Covered              
+        bin dr_sr_regs[4]                                  68          1          -    Covered              
+        bin dr_sr_regs[5]                                  72          1          -    Covered              
+        bin dr_sr_regs[6]                                  68          1          -    Covered              
+        bin dr_sr_regs[7]                                  63          1          -    Covered              
+    Cross mem_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                56         56          -                      
+        missing/total bins:                                 0         56          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <STI,dr_sr_regs[7]>                         6          1          -    Covered              
+            bin <STI,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STI,dr_sr_regs[5]>                        12          1          -    Covered              
+            bin <STI,dr_sr_regs[4]>                         2          1          -    Covered              
+            bin <STI,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[1]>                        10          1          -    Covered              
+            bin <STI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[7]>                        17          1          -    Covered              
+            bin <STR,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <STR,dr_sr_regs[4]>                         8          1          -    Covered              
+            bin <STR,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[2]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[1]>                         2          1          -    Covered              
+            bin <STR,dr_sr_regs[0]>                        10          1          -    Covered              
+            bin <ST,dr_sr_regs[7]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[6]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[5]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[4]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[3]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[2]>                          7          1          -    Covered              
+            bin <ST,dr_sr_regs[1]>                         12          1          -    Covered              
+            bin <ST,dr_sr_regs[0]>                          2          1          -    Covered              
+            bin <LEA,dr_sr_regs[7]>                         8          1          -    Covered              
+            bin <LEA,dr_sr_regs[6]>                        16          1          -    Covered              
+            bin <LEA,dr_sr_regs[5]>                         7          1          -    Covered              
+            bin <LEA,dr_sr_regs[4]>                        12          1          -    Covered              
+            bin <LEA,dr_sr_regs[3]>                         6          1          -    Covered              
+            bin <LEA,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[0]>                         6          1          -    Covered              
+            bin <LDI,dr_sr_regs[7]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[6]>                         3          1          -    Covered              
+            bin <LDI,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[4]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[3]>                         9          1          -    Covered              
+            bin <LDI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <LDI,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <LDR,dr_sr_regs[7]>                         3          1          -    Covered              
+            bin <LDR,dr_sr_regs[6]>                        14          1          -    Covered              
+            bin <LDR,dr_sr_regs[5]>                        10          1          -    Covered              
+            bin <LDR,dr_sr_regs[4]>                        17          1          -    Covered              
+            bin <LDR,dr_sr_regs[3]>                         2          1          -    Covered              
+            bin <LDR,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LDR,dr_sr_regs[1]>                         6          1          -    Covered              
+            bin <LDR,dr_sr_regs[0]>                         5          1          -    Covered              
+            bin <LD,dr_sr_regs[7]>                         13          1          -    Covered              
+            bin <LD,dr_sr_regs[6]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[5]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[4]>                          5          1          -    Covered              
+            bin <LD,dr_sr_regs[3]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[2]>                          3          1          -    Covered              
+            bin <LD,dr_sr_regs[1]>                         15          1          -    Covered              
+            bin <LD,dr_sr_regs[0]>                          9          1          -    Covered              
+ Covergroup instance alu_transaction_cg_uvm_test_top.environment.imem_agent.imem_agent_coverage 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    71         71          -                      
+    missing/total bins:                                     0         71          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint mem_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin LD                                             69          1          -    Covered              
+        bin LDR                                            68          1          -    Covered              
+        bin LDI                                            78          1          -    Covered              
+        bin LEA                                            77          1          -    Covered              
+        bin ST                                             54          1          -    Covered              
+        bin STR                                            77          1          -    Covered              
+        bin STI                                            60          1          -    Covered              
+    Coverpoint mem_instr_reg                          100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dr_sr_regs[0]                                  46          1          -    Covered              
+        bin dr_sr_regs[1]                                  67          1          -    Covered              
+        bin dr_sr_regs[2]                                  55          1          -    Covered              
+        bin dr_sr_regs[3]                                  44          1          -    Covered              
+        bin dr_sr_regs[4]                                  68          1          -    Covered              
+        bin dr_sr_regs[5]                                  72          1          -    Covered              
+        bin dr_sr_regs[6]                                  68          1          -    Covered              
+        bin dr_sr_regs[7]                                  63          1          -    Covered              
+    Cross mem_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                56         56          -                      
+        missing/total bins:                                 0         56          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <STI,dr_sr_regs[7]>                         6          1          -    Covered              
+            bin <STI,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STI,dr_sr_regs[5]>                        12          1          -    Covered              
+            bin <STI,dr_sr_regs[4]>                         2          1          -    Covered              
+            bin <STI,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[1]>                        10          1          -    Covered              
+            bin <STI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[7]>                        17          1          -    Covered              
+            bin <STR,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <STR,dr_sr_regs[4]>                         8          1          -    Covered              
+            bin <STR,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[2]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[1]>                         2          1          -    Covered              
+            bin <STR,dr_sr_regs[0]>                        10          1          -    Covered              
+            bin <ST,dr_sr_regs[7]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[6]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[5]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[4]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[3]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[2]>                          7          1          -    Covered              
+            bin <ST,dr_sr_regs[1]>                         12          1          -    Covered              
+            bin <ST,dr_sr_regs[0]>                          2          1          -    Covered              
+            bin <LEA,dr_sr_regs[7]>                         8          1          -    Covered              
+            bin <LEA,dr_sr_regs[6]>                        16          1          -    Covered              
+            bin <LEA,dr_sr_regs[5]>                         7          1          -    Covered              
+            bin <LEA,dr_sr_regs[4]>                        12          1          -    Covered              
+            bin <LEA,dr_sr_regs[3]>                         6          1          -    Covered              
+            bin <LEA,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[0]>                         6          1          -    Covered              
+            bin <LDI,dr_sr_regs[7]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[6]>                         3          1          -    Covered              
+            bin <LDI,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[4]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[3]>                         9          1          -    Covered              
+            bin <LDI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <LDI,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <LDR,dr_sr_regs[7]>                         3          1          -    Covered              
+            bin <LDR,dr_sr_regs[6]>                        14          1          -    Covered              
+            bin <LDR,dr_sr_regs[5]>                        10          1          -    Covered              
+            bin <LDR,dr_sr_regs[4]>                        17          1          -    Covered              
+            bin <LDR,dr_sr_regs[3]>                         2          1          -    Covered              
+            bin <LDR,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LDR,dr_sr_regs[1]>                         6          1          -    Covered              
+            bin <LDR,dr_sr_regs[0]>                         5          1          -    Covered              
+            bin <LD,dr_sr_regs[7]>                         13          1          -    Covered              
+            bin <LD,dr_sr_regs[6]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[5]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[4]>                          5          1          -    Covered              
+            bin <LD,dr_sr_regs[3]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[2]>                          3          1          -    Covered              
+            bin <LD,dr_sr_regs[1]>                         15          1          -    Covered              
+            bin <LD,dr_sr_regs[0]>                          9          1          -    Covered              
+ TYPE /imem_pkg/imem_transaction_coverage/ctrl_transaction_cg 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    17         17          -                      
+    missing/total bins:                                     0         17          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint ctrl_instr_opcode                      100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin BR                                            241          1          -    Covered              
+        bin JMP                                           248          1          -    Covered              
+    Coverpoint ctrl_instr_br_nzp                      100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin valid_nzp[1]                                   24          1          -    Covered              
+        bin valid_nzp[2]                                   40          1          -    Covered              
+        bin valid_nzp[3]                                   28          1          -    Covered              
+        bin valid_nzp[4]                                   44          1          -    Covered              
+        bin valid_nzp[5]                                   36          1          -    Covered              
+        bin valid_nzp[6]                                   39          1          -    Covered              
+        bin valid_nzp[7]                                   24          1          -    Covered              
+    Coverpoint ctrl_instr_jmp_reg                     100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regs[0]                                        36          1          -    Covered              
+        bin regs[1]                                        28          1          -    Covered              
+        bin regs[2]                                        32          1          -    Covered              
+        bin regs[3]                                        36          1          -    Covered              
+        bin regs[4]                                        24          1          -    Covered              
+        bin regs[5]                                        28          1          -    Covered              
+        bin regs[6]                                        44          1          -    Covered              
+        bin regs[7]                                        20          1          -    Covered              
+ Covergroup instance alu_transaction_cg_uvm_test_top.environment.imem_agent.imem_agent_coverage 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    17         17          -                      
+    missing/total bins:                                     0         17          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint ctrl_instr_opcode                      100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin BR                                            241          1          -    Covered              
+        bin JMP                                           248          1          -    Covered              
+    Coverpoint ctrl_instr_br_nzp                      100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin valid_nzp[1]                                   24          1          -    Covered              
+        bin valid_nzp[2]                                   40          1          -    Covered              
+        bin valid_nzp[3]                                   28          1          -    Covered              
+        bin valid_nzp[4]                                   44          1          -    Covered              
+        bin valid_nzp[5]                                   36          1          -    Covered              
+        bin valid_nzp[6]                                   39          1          -    Covered              
+        bin valid_nzp[7]                                   24          1          -    Covered              
+    Coverpoint ctrl_instr_jmp_reg                     100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regs[0]                                        36          1          -    Covered              
+        bin regs[1]                                        28          1          -    Covered              
+        bin regs[2]                                        32          1          -    Covered              
+        bin regs[3]                                        36          1          -    Covered              
+        bin regs[4]                                        24          1          -    Covered              
+        bin regs[5]                                        28          1          -    Covered              
+        bin regs[6]                                        44          1          -    Covered              
+        bin regs[7]                                        20          1          -    Covered              
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /imem_pkg/imem_transaction_coverage/alu_transaction_cg 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    93         93          -                      
+    missing/total bins:                                     0         93          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint alu_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ADD                                           184          1          -    Covered              
+        bin AND                                           253          1          -    Covered              
+        bin NOT                                            94          1          -    Covered              
+    Coverpoint ADDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addi                                           91          1          -    Covered              
+    Coverpoint ANDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin andi                                          149          1          -    Covered              
+    Coverpoint DR_cp                                  100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dest_regs[0]                                   63          1          -    Covered              
+        bin dest_regs[1]                                   63          1          -    Covered              
+        bin dest_regs[2]                                   74          1          -    Covered              
+        bin dest_regs[3]                                   72          1          -    Covered              
+        bin dest_regs[4]                                   70          1          -    Covered              
+        bin dest_regs[5]                                   54          1          -    Covered              
+        bin dest_regs[6]                                   69          1          -    Covered              
+        bin dest_regs[7]                                   66          1          -    Covered              
+    Coverpoint SR1_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr1_regs[0]                                    52          1          -    Covered              
+        bin sr1_regs[1]                                    72          1          -    Covered              
+        bin sr1_regs[2]                                    59          1          -    Covered              
+        bin sr1_regs[3]                                    65          1          -    Covered              
+        bin sr1_regs[4]                                    78          1          -    Covered              
+        bin sr1_regs[5]                                    72          1          -    Covered              
+        bin sr1_regs[6]                                    60          1          -    Covered              
+        bin sr1_regs[7]                                    73          1          -    Covered              
+    Coverpoint SR2_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr2_regs[0]                                    95          1          -    Covered              
+        bin sr2_regs[1]                                    43          1          -    Covered              
+        bin sr2_regs[2]                                    41          1          -    Covered              
+        bin sr2_regs[3]                                    55          1          -    Covered              
+        bin sr2_regs[4]                                    38          1          -    Covered              
+        bin sr2_regs[5]                                    56          1          -    Covered              
+        bin sr2_regs[6]                                    57          1          -    Covered              
+        bin sr2_regs[7]                                    52          1          -    Covered              
+    Cross alu_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <dest_regs[7],sr1_regs[7]>                 17          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[7]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[7]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[7]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[7]>                 10          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[7]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[7]>                  9          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[7]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[6]>                  9          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[6]>                 10          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[6]>                  5          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[6]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[5]>                  2          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[5]>                 13          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[5]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[5]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[5]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[4]>                 14          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[4]>                 22          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[3]>                  7          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[3]>                  9          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[3]>                 18          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[3]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[3]>                  5          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[2]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[2]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[2]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[2]>                 14          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[1]>                 13          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[1]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[1]>                  7          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[1]>                 10          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[1]>                 11          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[1]>                 14          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[0]>                  7          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[0]>                  1          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[0]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[0]>                  3          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[0]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[0]>                 12          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[0]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[0]>                 10          1          -    Covered              
+ Covergroup instance alu_transaction_cg_uvm_test_top.environment.imem_agent.imem_agent_coverage 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    93         93          -                      
+    missing/total bins:                                     0         93          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint alu_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin ADD                                           184          1          -    Covered              
+        bin AND                                           253          1          -    Covered              
+        bin NOT                                            94          1          -    Covered              
+    Coverpoint ADDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin addi                                           91          1          -    Covered              
+    Coverpoint ANDI_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin andi                                          149          1          -    Covered              
+    Coverpoint DR_cp                                  100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dest_regs[0]                                   63          1          -    Covered              
+        bin dest_regs[1]                                   63          1          -    Covered              
+        bin dest_regs[2]                                   74          1          -    Covered              
+        bin dest_regs[3]                                   72          1          -    Covered              
+        bin dest_regs[4]                                   70          1          -    Covered              
+        bin dest_regs[5]                                   54          1          -    Covered              
+        bin dest_regs[6]                                   69          1          -    Covered              
+        bin dest_regs[7]                                   66          1          -    Covered              
+    Coverpoint SR1_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr1_regs[0]                                    52          1          -    Covered              
+        bin sr1_regs[1]                                    72          1          -    Covered              
+        bin sr1_regs[2]                                    59          1          -    Covered              
+        bin sr1_regs[3]                                    65          1          -    Covered              
+        bin sr1_regs[4]                                    78          1          -    Covered              
+        bin sr1_regs[5]                                    72          1          -    Covered              
+        bin sr1_regs[6]                                    60          1          -    Covered              
+        bin sr1_regs[7]                                    73          1          -    Covered              
+    Coverpoint SR2_cp                                 100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin sr2_regs[0]                                    95          1          -    Covered              
+        bin sr2_regs[1]                                    43          1          -    Covered              
+        bin sr2_regs[2]                                    41          1          -    Covered              
+        bin sr2_regs[3]                                    55          1          -    Covered              
+        bin sr2_regs[4]                                    38          1          -    Covered              
+        bin sr2_regs[5]                                    56          1          -    Covered              
+        bin sr2_regs[6]                                    57          1          -    Covered              
+        bin sr2_regs[7]                                    52          1          -    Covered              
+    Cross alu_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                64         64          -                      
+        missing/total bins:                                 0         64          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <dest_regs[7],sr1_regs[7]>                 17          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[7]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[7]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[7]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[7]>                 10          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[7]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[7]>                  9          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[7]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[6]>                  9          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[6]>                 10          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[6]>                  8          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[6]>                  5          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[6]>                  7          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[6]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[5]>                  2          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[5]>                 13          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[5]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[5]>                 11          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[5]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[5]>                  7          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[4]>                 14          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[4]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[4]>                 22          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[4]>                  8          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[3]>                  7          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[3]>                  9          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[3]>                 18          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[3]>                  6          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[3]>                  8          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[3]>                  5          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[2]>                  5          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[2]>                 11          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[2]>                  9          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[2]>                  4          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[2]>                 14          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[2]>                  6          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[1]>                 13          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[1]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[1]>                  7          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[1]>                  6          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[1]>                 10          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[1]>                 11          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[1]>                 14          1          -    Covered              
+            bin <dest_regs[7],sr1_regs[0]>                  7          1          -    Covered              
+            bin <dest_regs[6],sr1_regs[0]>                  1          1          -    Covered              
+            bin <dest_regs[5],sr1_regs[0]>                  5          1          -    Covered              
+            bin <dest_regs[4],sr1_regs[0]>                  3          1          -    Covered              
+            bin <dest_regs[3],sr1_regs[0]>                  8          1          -    Covered              
+            bin <dest_regs[2],sr1_regs[0]>                 12          1          -    Covered              
+            bin <dest_regs[1],sr1_regs[0]>                  6          1          -    Covered              
+            bin <dest_regs[0],sr1_regs[0]>                 10          1          -    Covered              
+ TYPE /imem_pkg/imem_transaction_coverage/mem_transaction_cg 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    71         71          -                      
+    missing/total bins:                                     0         71          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint mem_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin LD                                             69          1          -    Covered              
+        bin LDR                                            68          1          -    Covered              
+        bin LDI                                            78          1          -    Covered              
+        bin LEA                                            77          1          -    Covered              
+        bin ST                                             54          1          -    Covered              
+        bin STR                                            77          1          -    Covered              
+        bin STI                                            60          1          -    Covered              
+    Coverpoint mem_instr_reg                          100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dr_sr_regs[0]                                  46          1          -    Covered              
+        bin dr_sr_regs[1]                                  67          1          -    Covered              
+        bin dr_sr_regs[2]                                  55          1          -    Covered              
+        bin dr_sr_regs[3]                                  44          1          -    Covered              
+        bin dr_sr_regs[4]                                  68          1          -    Covered              
+        bin dr_sr_regs[5]                                  72          1          -    Covered              
+        bin dr_sr_regs[6]                                  68          1          -    Covered              
+        bin dr_sr_regs[7]                                  63          1          -    Covered              
+    Cross mem_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                56         56          -                      
+        missing/total bins:                                 0         56          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <STI,dr_sr_regs[7]>                         6          1          -    Covered              
+            bin <STI,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STI,dr_sr_regs[5]>                        12          1          -    Covered              
+            bin <STI,dr_sr_regs[4]>                         2          1          -    Covered              
+            bin <STI,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[1]>                        10          1          -    Covered              
+            bin <STI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[7]>                        17          1          -    Covered              
+            bin <STR,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <STR,dr_sr_regs[4]>                         8          1          -    Covered              
+            bin <STR,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[2]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[1]>                         2          1          -    Covered              
+            bin <STR,dr_sr_regs[0]>                        10          1          -    Covered              
+            bin <ST,dr_sr_regs[7]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[6]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[5]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[4]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[3]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[2]>                          7          1          -    Covered              
+            bin <ST,dr_sr_regs[1]>                         12          1          -    Covered              
+            bin <ST,dr_sr_regs[0]>                          2          1          -    Covered              
+            bin <LEA,dr_sr_regs[7]>                         8          1          -    Covered              
+            bin <LEA,dr_sr_regs[6]>                        16          1          -    Covered              
+            bin <LEA,dr_sr_regs[5]>                         7          1          -    Covered              
+            bin <LEA,dr_sr_regs[4]>                        12          1          -    Covered              
+            bin <LEA,dr_sr_regs[3]>                         6          1          -    Covered              
+            bin <LEA,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[0]>                         6          1          -    Covered              
+            bin <LDI,dr_sr_regs[7]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[6]>                         3          1          -    Covered              
+            bin <LDI,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[4]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[3]>                         9          1          -    Covered              
+            bin <LDI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <LDI,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <LDR,dr_sr_regs[7]>                         3          1          -    Covered              
+            bin <LDR,dr_sr_regs[6]>                        14          1          -    Covered              
+            bin <LDR,dr_sr_regs[5]>                        10          1          -    Covered              
+            bin <LDR,dr_sr_regs[4]>                        17          1          -    Covered              
+            bin <LDR,dr_sr_regs[3]>                         2          1          -    Covered              
+            bin <LDR,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LDR,dr_sr_regs[1]>                         6          1          -    Covered              
+            bin <LDR,dr_sr_regs[0]>                         5          1          -    Covered              
+            bin <LD,dr_sr_regs[7]>                         13          1          -    Covered              
+            bin <LD,dr_sr_regs[6]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[5]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[4]>                          5          1          -    Covered              
+            bin <LD,dr_sr_regs[3]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[2]>                          3          1          -    Covered              
+            bin <LD,dr_sr_regs[1]>                         15          1          -    Covered              
+            bin <LD,dr_sr_regs[0]>                          9          1          -    Covered              
+ Covergroup instance alu_transaction_cg_uvm_test_top.environment.imem_agent.imem_agent_coverage 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    71         71          -                      
+    missing/total bins:                                     0         71          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint mem_instr_opcode                       100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin LD                                             69          1          -    Covered              
+        bin LDR                                            68          1          -    Covered              
+        bin LDI                                            78          1          -    Covered              
+        bin LEA                                            77          1          -    Covered              
+        bin ST                                             54          1          -    Covered              
+        bin STR                                            77          1          -    Covered              
+        bin STI                                            60          1          -    Covered              
+    Coverpoint mem_instr_reg                          100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin dr_sr_regs[0]                                  46          1          -    Covered              
+        bin dr_sr_regs[1]                                  67          1          -    Covered              
+        bin dr_sr_regs[2]                                  55          1          -    Covered              
+        bin dr_sr_regs[3]                                  44          1          -    Covered              
+        bin dr_sr_regs[4]                                  68          1          -    Covered              
+        bin dr_sr_regs[5]                                  72          1          -    Covered              
+        bin dr_sr_regs[6]                                  68          1          -    Covered              
+        bin dr_sr_regs[7]                                  63          1          -    Covered              
+    Cross mem_reg_cross                               100.00%        100          -    Covered              
+        covered/total bins:                                56         56          -                      
+        missing/total bins:                                 0         56          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <STI,dr_sr_regs[7]>                         6          1          -    Covered              
+            bin <STI,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STI,dr_sr_regs[5]>                        12          1          -    Covered              
+            bin <STI,dr_sr_regs[4]>                         2          1          -    Covered              
+            bin <STI,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <STI,dr_sr_regs[1]>                        10          1          -    Covered              
+            bin <STI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[7]>                        17          1          -    Covered              
+            bin <STR,dr_sr_regs[6]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <STR,dr_sr_regs[4]>                         8          1          -    Covered              
+            bin <STR,dr_sr_regs[3]>                         7          1          -    Covered              
+            bin <STR,dr_sr_regs[2]>                         9          1          -    Covered              
+            bin <STR,dr_sr_regs[1]>                         2          1          -    Covered              
+            bin <STR,dr_sr_regs[0]>                        10          1          -    Covered              
+            bin <ST,dr_sr_regs[7]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[6]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[5]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[4]>                          9          1          -    Covered              
+            bin <ST,dr_sr_regs[3]>                          5          1          -    Covered              
+            bin <ST,dr_sr_regs[2]>                          7          1          -    Covered              
+            bin <ST,dr_sr_regs[1]>                         12          1          -    Covered              
+            bin <ST,dr_sr_regs[0]>                          2          1          -    Covered              
+            bin <LEA,dr_sr_regs[7]>                         8          1          -    Covered              
+            bin <LEA,dr_sr_regs[6]>                        16          1          -    Covered              
+            bin <LEA,dr_sr_regs[5]>                         7          1          -    Covered              
+            bin <LEA,dr_sr_regs[4]>                        12          1          -    Covered              
+            bin <LEA,dr_sr_regs[3]>                         6          1          -    Covered              
+            bin <LEA,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LEA,dr_sr_regs[0]>                         6          1          -    Covered              
+            bin <LDI,dr_sr_regs[7]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[6]>                         3          1          -    Covered              
+            bin <LDI,dr_sr_regs[5]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[4]>                        15          1          -    Covered              
+            bin <LDI,dr_sr_regs[3]>                         9          1          -    Covered              
+            bin <LDI,dr_sr_regs[2]>                         7          1          -    Covered              
+            bin <LDI,dr_sr_regs[1]>                        11          1          -    Covered              
+            bin <LDI,dr_sr_regs[0]>                         7          1          -    Covered              
+            bin <LDR,dr_sr_regs[7]>                         3          1          -    Covered              
+            bin <LDR,dr_sr_regs[6]>                        14          1          -    Covered              
+            bin <LDR,dr_sr_regs[5]>                        10          1          -    Covered              
+            bin <LDR,dr_sr_regs[4]>                        17          1          -    Covered              
+            bin <LDR,dr_sr_regs[3]>                         2          1          -    Covered              
+            bin <LDR,dr_sr_regs[2]>                        11          1          -    Covered              
+            bin <LDR,dr_sr_regs[1]>                         6          1          -    Covered              
+            bin <LDR,dr_sr_regs[0]>                         5          1          -    Covered              
+            bin <LD,dr_sr_regs[7]>                         13          1          -    Covered              
+            bin <LD,dr_sr_regs[6]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[5]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[4]>                          5          1          -    Covered              
+            bin <LD,dr_sr_regs[3]>                          8          1          -    Covered              
+            bin <LD,dr_sr_regs[2]>                          3          1          -    Covered              
+            bin <LD,dr_sr_regs[1]>                         15          1          -    Covered              
+            bin <LD,dr_sr_regs[0]>                          9          1          -    Covered              
+ TYPE /imem_pkg/imem_transaction_coverage/ctrl_transaction_cg 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    17         17          -                      
+    missing/total bins:                                     0         17          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint ctrl_instr_opcode                      100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin BR                                            241          1          -    Covered              
+        bin JMP                                           248          1          -    Covered              
+    Coverpoint ctrl_instr_br_nzp                      100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin valid_nzp[1]                                   24          1          -    Covered              
+        bin valid_nzp[2]                                   40          1          -    Covered              
+        bin valid_nzp[3]                                   28          1          -    Covered              
+        bin valid_nzp[4]                                   44          1          -    Covered              
+        bin valid_nzp[5]                                   36          1          -    Covered              
+        bin valid_nzp[6]                                   39          1          -    Covered              
+        bin valid_nzp[7]                                   24          1          -    Covered              
+    Coverpoint ctrl_instr_jmp_reg                     100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regs[0]                                        36          1          -    Covered              
+        bin regs[1]                                        28          1          -    Covered              
+        bin regs[2]                                        32          1          -    Covered              
+        bin regs[3]                                        36          1          -    Covered              
+        bin regs[4]                                        24          1          -    Covered              
+        bin regs[5]                                        28          1          -    Covered              
+        bin regs[6]                                        44          1          -    Covered              
+        bin regs[7]                                        20          1          -    Covered              
+ Covergroup instance alu_transaction_cg_uvm_test_top.environment.imem_agent.imem_agent_coverage 
+                                                      100.00%        100          -    Covered              
+    covered/total bins:                                    17         17          -                      
+    missing/total bins:                                     0         17          -                      
+    % Hit:                                            100.00%        100          -                      
+    Coverpoint ctrl_instr_opcode                      100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin BR                                            241          1          -    Covered              
+        bin JMP                                           248          1          -    Covered              
+    Coverpoint ctrl_instr_br_nzp                      100.00%        100          -    Covered              
+        covered/total bins:                                 7          7          -                      
+        missing/total bins:                                 0          7          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin valid_nzp[1]                                   24          1          -    Covered              
+        bin valid_nzp[2]                                   40          1          -    Covered              
+        bin valid_nzp[3]                                   28          1          -    Covered              
+        bin valid_nzp[4]                                   44          1          -    Covered              
+        bin valid_nzp[5]                                   36          1          -    Covered              
+        bin valid_nzp[6]                                   39          1          -    Covered              
+        bin valid_nzp[7]                                   24          1          -    Covered              
+    Coverpoint ctrl_instr_jmp_reg                     100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin regs[0]                                        36          1          -    Covered              
+        bin regs[1]                                        28          1          -    Covered              
+        bin regs[2]                                        32          1          -    Covered              
+        bin regs[3]                                        36          1          -    Covered              
+        bin regs[4]                                        24          1          -    Covered              
+        bin regs[5]                                        28          1          -    Covered              
+        bin regs[6]                                        44          1          -    Covered              
+        bin regs[7]                                        20          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 3
+
+Total Coverage By Instance (filtered view): 100.00%
+

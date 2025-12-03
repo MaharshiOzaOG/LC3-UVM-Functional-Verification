@@ -220,11 +220,11 @@ emu_build: libs build link optimize
 
 merge_coverage:
 	xml2ucdb -format Excel ./lc3_test_plan.xml ./lc3_test_plan.ucdb
-	vcover merge -stats=none -strip 0 -totals sim_and_testplan_merged.ucdb ./*.ucdb 
+	vcover merge -stats=none -strip 0 -totals sim_and_testplan_merged.ucdb ./*.ucdb
 
 # uncomment the second line to view the coverage in visualizer
 view_coverage:
-	vsim -viewcov ./sim_and_testplan_merged.ucdb -do "coverage report -cvg -output coverage_report.txt"
+	vsim -viewcov ./sim_and_testplan_merged.ucdb -do "coverage report -details -cvg -output coverage_report.txt"
 # 	visualizer -viewcov ./sim_and_testplan_merged.ucdb -do "coverage report -cvg -output coverage_report.txt"
 
 # pragma uvmf custom additional_targets begin

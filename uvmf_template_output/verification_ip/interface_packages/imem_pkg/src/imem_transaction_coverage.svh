@@ -84,8 +84,8 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
                                                           (coverage_trans.Instr_dout[15:12]==4'h1 || 
                                                           coverage_trans.Instr_dout[15:12]==4'h5); }
 
-    ADD_reg_cross : cross DR_cp, SR1_cp
-    iff (coverage_trans.Instr_dout[15:12] == 4'h1 && coverage_trans.Instr_dout[5] == 0);
+    alu_reg_cross : cross DR_cp, SR1_cp
+    iff (coverage_trans.Instr_dout[15:12] == 4'h1 || coverage_trans.Instr_dout[15:12] == 4'h5 || coverage_trans.Instr_dout[15:12] == 4'h9);
 
     // AND_reg_cross : cross DR_cp, SR1_cp, SR2_cp
     // iff (coverage_trans.Instr_dout[15:12] == 4'h5 && coverage_trans.Instr_dout[5] == 0);
