@@ -137,7 +137,6 @@ end
       @(posedge clock_i);  
       do_monitor( execute_out_monitor_struct );
       proxy.notify_transaction( execute_out_monitor_struct );
- 
     end                                                                                    
   end                                                                                       
 

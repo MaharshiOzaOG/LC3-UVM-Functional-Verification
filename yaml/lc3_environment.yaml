@@ -8,13 +8,6 @@ uvmf:
       - initiator_responder: RESPONDER
         name: data_mem_agent
         type: data_mem
-      analysis_components: []
-      analysis_exports: []
-      analysis_ports: []
-      config_constraints: []
-      config_vars: []
-      existing_library_component: 'False'
-      hvl_pkg_parameters: []
       imports:
       - name: fetch_env_pkg
       - name: decode_env_pkg
@@ -24,33 +17,23 @@ uvmf:
       - name: writeback_env_pkg
       - name: data_mem_pkg
       - name: imem_pkg
-      non_uvmf_components: []
-      parameters: []
-      qvip_memory_agents: []
-      scoreboards: []
       subenvs:
       - name: fetch_env
         parameters: []
-        #reg_block_instance_name: fetch_env_rm
         type: fetch
       - name: decode_env
         parameters: []
-        # reg_block_instance_name: decode_env_rm
         type: decode
       - name: execute_env
         parameters: []
-        # reg_block_instance_name: execute_env_rm
         type: execute
       - name: mem_access_env
         parameters: []
-        # reg_block_instance_name: memaccess_env_rm
         type: mem_access
       - name: control_env
         parameters: []
-        # reg_block_instance_name: controller_env_rm
         type: control
       - name: writeback_env
         parameters: []
-        # reg_block_instance_name: writeback_env_rm
         type: writeback
       tlm_connections: []

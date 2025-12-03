@@ -140,10 +140,7 @@ end
     forever begin                                                                        
       @(posedge clock_i);  
       do_monitor( execute_in_monitor_struct );
-                                                                 
- 
-      proxy.notify_transaction( execute_in_monitor_struct );
- 
+      proxy.notify_transaction( execute_in_monitor_struct ); 
     end                                                                                    
   end                                                                                       
 

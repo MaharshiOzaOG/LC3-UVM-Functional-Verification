@@ -36,18 +36,18 @@ uvmf:
         iscompare: 'True'
         isrand: 'False'
         name: npc
-        type: logic [15:0]
+        type: bit [15:0]
         unpacked_dimension: ''
       - comment: ''
         iscompare: 'True'
         isrand: 'False'
         name: pc
-        type: logic [15:0]
+        type: bit [15:0]
         unpacked_dimension: ''
       - comment: ''
         iscompare: 'True'
         isrand: 'False'
         name: instrmem_rd
-        type: logic
+        type: bit
         unpacked_dimension: ''
       use_dpi_link: 'False'

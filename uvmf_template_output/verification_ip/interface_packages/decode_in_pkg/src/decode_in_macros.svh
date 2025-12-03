@@ -49,40 +49,18 @@ typedef struct packed  { \
 //      and from_monitor_struct methods of the decode_in_transaction class.
 //
   `define decode_in_MONITOR_STRUCT typedef struct packed  { \
-  op_t ins_type ; \
-  src1_f sr1 ; \
-  src2_f sr2 ; \
-  dest_f dr ; \
-  baser_f baser ; \
-  p_f p ; \
   bit enable_decode ; \
   bit[15:0] instr_dout ; \
   bit[15:0] npc_in ; \
-  pcoffset9_f pcoffset9 ; \
-  pcoffset6_f pcoffset6 ; \
-  imm5_f imm5 ; \
-  n_f n ; \
-  z_f z ; \
      } decode_in_monitor_s;
 
   `define decode_in_TO_MONITOR_STRUCT_FUNCTION \
   virtual function decode_in_monitor_s to_monitor_struct();\
     decode_in_monitor_struct = \
             { \
-            this.ins_type , \
-            this.sr1 , \
-            this.sr2 , \
-            this.dr , \
-            this.baser , \
-            this.p , \
             this.enable_decode , \
             this.instr_dout , \
-            this.npc_in , \
-            this.pcoffset9 , \
-            this.pcoffset6 , \
-            this.imm5 , \
-            this.n , \
-            this.z  \
+            this.npc_in  \
             };\
     return ( decode_in_monitor_struct);\
   endfunction\
@@ -90,20 +68,9 @@ typedef struct packed  { \
   `define decode_in_FROM_MONITOR_STRUCT_FUNCTION \
   virtual function void from_monitor_struct(decode_in_monitor_s decode_in_monitor_struct);\
             {\
-            this.ins_type , \
-            this.sr1 , \
-            this.sr2 , \
-            this.dr , \
-            this.baser , \
-            this.p , \
             this.enable_decode , \
             this.instr_dout , \
-            this.npc_in , \
-            this.pcoffset9 , \
-            this.pcoffset6 , \
-            this.imm5 , \
-            this.n , \
-            this.z  \
+            this.npc_in  \
             } = decode_in_monitor_struct;\
   endfunction
 
@@ -113,40 +80,18 @@ typedef struct packed  { \
 //      Also update the comments in the driver BFM.
 //
   `define decode_in_INITIATOR_STRUCT typedef struct packed  { \
-  op_t ins_type ; \
-  src1_f sr1 ; \
-  src2_f sr2 ; \
-  dest_f dr ; \
-  baser_f baser ; \
-  p_f p ; \
   bit enable_decode ; \
   bit[15:0] instr_dout ; \
   bit[15:0] npc_in ; \
-  pcoffset9_f pcoffset9 ; \
-  pcoffset6_f pcoffset6 ; \
-  imm5_f imm5 ; \
-  n_f n ; \
-  z_f z ; \
      } decode_in_initiator_s;
 
   `define decode_in_TO_INITIATOR_STRUCT_FUNCTION \
   virtual function decode_in_initiator_s to_initiator_struct();\
     decode_in_initiator_struct = \
            {\
-           this.ins_type , \
-           this.sr1 , \
-           this.sr2 , \
-           this.dr , \
-           this.baser , \
-           this.p , \
            this.enable_decode , \
            this.instr_dout , \
-           this.npc_in , \
-           this.pcoffset9 , \
-           this.pcoffset6 , \
-           this.imm5 , \
-           this.n , \
-           this.z  \
+           this.npc_in  \
            };\
     return ( decode_in_initiator_struct);\
   endfunction
@@ -154,20 +99,9 @@ typedef struct packed  { \
   `define decode_in_FROM_INITIATOR_STRUCT_FUNCTION \
   virtual function void from_initiator_struct(decode_in_initiator_s decode_in_initiator_struct);\
            {\
-           this.ins_type , \
-           this.sr1 , \
-           this.sr2 , \
-           this.dr , \
-           this.baser , \
-           this.p , \
            this.enable_decode , \
            this.instr_dout , \
-           this.npc_in , \
-           this.pcoffset9 , \
-           this.pcoffset6 , \
-           this.imm5 , \
-           this.n , \
-           this.z  \
+           this.npc_in  \
            } = decode_in_initiator_struct;\
   endfunction
 
@@ -177,40 +111,18 @@ typedef struct packed  { \
 //      Also update the comments in the driver BFM.
 //
   `define decode_in_RESPONDER_STRUCT typedef struct packed  { \
-  op_t ins_type ; \
-  src1_f sr1 ; \
-  src2_f sr2 ; \
-  dest_f dr ; \
-  baser_f baser ; \
-  p_f p ; \
   bit enable_decode ; \
   bit[15:0] instr_dout ; \
   bit[15:0] npc_in ; \
-  pcoffset9_f pcoffset9 ; \
-  pcoffset6_f pcoffset6 ; \
-  imm5_f imm5 ; \
-  n_f n ; \
-  z_f z ; \
      } decode_in_responder_s;
 
   `define decode_in_TO_RESPONDER_STRUCT_FUNCTION \
   virtual function decode_in_responder_s to_responder_struct();\
     decode_in_responder_struct = \
            {\
-           this.ins_type , \
-           this.sr1 , \
-           this.sr2 , \
-           this.dr , \
-           this.baser , \
-           this.p , \
            this.enable_decode , \
            this.instr_dout , \
-           this.npc_in , \
-           this.pcoffset9 , \
-           this.pcoffset6 , \
-           this.imm5 , \
-           this.n , \
-           this.z  \
+           this.npc_in  \
            };\
     return ( decode_in_responder_struct);\
   endfunction
@@ -218,20 +130,9 @@ typedef struct packed  { \
   `define decode_in_FROM_RESPONDER_STRUCT_FUNCTION \
   virtual function void from_responder_struct(decode_in_responder_s decode_in_responder_struct);\
            {\
-           this.ins_type , \
-           this.sr1 , \
-           this.sr2 , \
-           this.dr , \
-           this.baser , \
-           this.p , \
            this.enable_decode , \
            this.instr_dout , \
-           this.npc_in , \
-           this.pcoffset9 , \
-           this.pcoffset6 , \
-           this.imm5 , \
-           this.n , \
-           this.z  \
+           this.npc_in  \
            } = decode_in_responder_struct;\
   endfunction
 // pragma uvmf custom additional begin

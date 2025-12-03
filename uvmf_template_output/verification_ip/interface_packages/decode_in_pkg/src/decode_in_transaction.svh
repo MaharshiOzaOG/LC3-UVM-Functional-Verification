@@ -18,20 +18,9 @@ class decode_in_transaction  extends uvmf_transaction_base;
 
   `uvm_object_utils( decode_in_transaction )
 
-  rand op_t ins_type ;
-  rand src1_f sr1 ;
-  rand src2_f sr2 ;
-  rand dest_f dr ;
-  rand baser_f baser ;
-  rand p_f p ;
   rand bit enable_decode ;
   rand bit[15:0] instr_dout ;
   rand bit[15:0] npc_in ;
-  rand pcoffset9_f pcoffset9 ;
-  rand pcoffset6_f pcoffset6 ;
-  rand imm5_f imm5 ;
-  rand n_f n ;
-  rand z_f z ;
 
   //Constraints for the transaction variables:
 
@@ -114,7 +103,7 @@ class decode_in_transaction  extends uvmf_transaction_base;
   virtual function string convert2string();
     // pragma uvmf custom convert2string begin
     // UVMF_CHANGE_ME : Customize format if desired.
-    return $sformatf("ins_type:0x%x sr1:0x%x sr2:0x%x dr:0x%x baser:0x%x p:0x%x enable_decode:0x%x instr_dout:0x%x npc_in:0x%x pcoffset9:0x%x pcoffset6:0x%x imm5:0x%x n:0x%x z:0x%x ",ins_type,sr1,sr2,dr,baser,p,enable_decode,instr_dout,npc_in,pcoffset9,pcoffset6,imm5,n,z);
+    return $sformatf("enable_decode:0x%x instr_dout:0x%x npc_in:0x%x ",enable_decode,instr_dout,npc_in);
     // pragma uvmf custom convert2string end
   endfunction
 
@@ -158,20 +147,9 @@ class decode_in_transaction  extends uvmf_transaction_base;
     end
     // pragma uvmf custom do_copy begin
     super.do_copy(rhs);
-    this.ins_type = RHS.ins_type;
-    this.sr1 = RHS.sr1;
-    this.sr2 = RHS.sr2;
-    this.dr = RHS.dr;
-    this.baser = RHS.baser;
-    this.p = RHS.p;
     this.enable_decode = RHS.enable_decode;
     this.instr_dout = RHS.instr_dout;
     this.npc_in = RHS.npc_in;
-    this.pcoffset9 = RHS.pcoffset9;
-    this.pcoffset6 = RHS.pcoffset6;
-    this.imm5 = RHS.imm5;
-    this.n = RHS.n;
-    this.z = RHS.z;
     // pragma uvmf custom do_copy end
   endfunction
 
@@ -195,20 +173,9 @@ class decode_in_transaction  extends uvmf_transaction_base;
     //   default : $add_color(transaction_view_h,"grey");
     // endcase
     // UVMF_CHANGE_ME : Eliminate transaction variables not wanted in transaction viewing in the waveform viewer
-    $add_attribute(transaction_view_h,ins_type,"ins_type");
-    $add_attribute(transaction_view_h,sr1,"sr1");
-    $add_attribute(transaction_view_h,sr2,"sr2");
-    $add_attribute(transaction_view_h,dr,"dr");
-    $add_attribute(transaction_view_h,baser,"baser");
-    $add_attribute(transaction_view_h,p,"p");
     $add_attribute(transaction_view_h,enable_decode,"enable_decode");
     $add_attribute(transaction_view_h,instr_dout,"instr_dout");
     $add_attribute(transaction_view_h,npc_in,"npc_in");
-    $add_attribute(transaction_view_h,pcoffset9,"pcoffset9");
-    $add_attribute(transaction_view_h,pcoffset6,"pcoffset6");
-    $add_attribute(transaction_view_h,imm5,"imm5");
-    $add_attribute(transaction_view_h,n,"n");
-    $add_attribute(transaction_view_h,z,"z");
     // pragma uvmf custom add_to_wave end
     $end_transaction(transaction_view_h,end_time);
     $free_transaction(transaction_view_h);

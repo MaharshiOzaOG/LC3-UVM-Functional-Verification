@@ -3,7 +3,7 @@ class control_instructions extends imem_responder_sequence;
 
     bit [15:0] instruction;
 
-    function new (string name = "alu_sequence");
+    function new (string name = "control_instructions");
         super.new(name);
     endfunction
 
@@ -20,8 +20,6 @@ task body();
     
     forever begin
       start_item(req);
-
-
       if (!req.randomize() with {
         instruction_type inside {BR,JMP};
         dest_reg inside {[0:7]};     // Used for DR (Loads) or SR (Stores)
@@ -54,8 +52,7 @@ task body();
                           6'b000000};
         end
       endcase
-      
-      // Set the instruction output
+
       req.Instr_dout = instruction;
       finish_item(req);
     end

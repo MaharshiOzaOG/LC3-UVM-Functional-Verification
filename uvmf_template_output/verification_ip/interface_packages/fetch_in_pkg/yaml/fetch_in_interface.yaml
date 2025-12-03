@@ -36,24 +36,24 @@ uvmf:
         iscompare: 'False'
         isrand: 'False'
         name: enable_updatePC
-        type: logic
+        type: bit
         unpacked_dimension: ''
       - comment: ''
         iscompare: 'False'
         isrand: 'False'
         name: enable_fetch
-        type: logic
+        type: bit
         unpacked_dimension: ''
       - comment: ''
         iscompare: 'False'
         isrand: 'False'
         name: taddr
-        type: logic [15:0]
+        type: bit [15:0]
         unpacked_dimension: ''
       - comment: ''
         iscompare: 'False'
         isrand: 'False'
         name: br_taken
-        type: logic
+        type: bit
         unpacked_dimension: ''
       use_dpi_link: 'False'

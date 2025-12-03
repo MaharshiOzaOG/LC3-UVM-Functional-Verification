@@ -47,7 +47,7 @@ endif
 
 
 # Set test case specific Variables
-TEST_NAME            ?= memory_seq_test #change this to control_seq_test or memory_seq_test to test those operations
+TEST_NAME            ?= alu_seq_test #change this to control_seq_test or memory_seq_test to test those operations
 
 TEST_SEED            ?= random
 UVM_CLI_ARGS         = 
@@ -218,12 +218,14 @@ build: $(BUILD_TGT)
 
 emu_build: libs build link optimize
 
-convert_testplan:
-	xml2ucdb -format Excel ./lc3_test_plan.xml ./lc3_test_plan.ucdb
-#	add testbrowser ./*.ucdb
 merge_coverage:
+	xml2ucdb -format Excel ./lc3_test_plan.xml ./lc3_test_plan.ucdb
 	vcover merge -stats=none -strip 0 -totals sim_and_testplan_merged.ucdb ./*.ucdb 
-	-coverage open ./sim_and_testplan_merged.ucdb || echo "Note: coverage GUI not available. Merged coverage database created: sim_and_testplan_merged.ucdb"
+
+# uncomment the second line to view the coverage in visualizer
+view_coverage:
+	vsim -viewcov ./sim_and_testplan_merged.ucdb -do "coverage report -cvg -output coverage_report.txt"
+# 	visualizer -viewcov ./sim_and_testplan_merged.ucdb -do "coverage report -cvg -output coverage_report.txt"
 
 # pragma uvmf custom additional_targets begin
 # pragma uvmf custom additional_targets end

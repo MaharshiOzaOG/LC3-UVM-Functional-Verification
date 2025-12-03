@@ -2,14 +2,6 @@ uvmf:
   interfaces:
     control_out:
       clock: clk
-      config_constraints: []
-      config_vars: []
-      existing_library_component: 'False'
-      gen_inbound_streaming_driver: 'False'
-      hdl_pkg_parameters: []
-      hvl_pkg_parameters: []
-      hvl_typedefs: []
-      parameters: []
       ports:
       - dir: input
         name: enable_updatePC
@@ -57,63 +49,48 @@ uvmf:
         width: '2'
       reset: rst
       reset_assertion_level: 'True'
-      response_info:
-        data: []
-        operation: 1'b1
       transaction_vars:
       - iscompare: 'True'
         isrand: 'False'
         name: enable_updatePC
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: enable_fetch
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: enable_decode
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: enable_execute
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: enable_writeback
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: br_taken
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: bypass_alu_1
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: bypass_alu_2
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: bypass_mem_1
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: bypass_mem_2
         type: bit 
-        unpacked_dimension: ''
       - iscompare: 'True'
         isrand: 'False'
         name: mem_state
         type: bit [1:0]
-        unpacked_dimension: ''
-      use_dpi_link: 'False'

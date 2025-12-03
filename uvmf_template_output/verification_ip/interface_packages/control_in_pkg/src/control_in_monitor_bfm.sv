@@ -180,10 +180,6 @@ end
     // task should return when a complete transfer has been observed.  Once this task is
     // exited with captured values, it is then called again to wait for and observe 
     // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    // @(posedge clk_i);
-    // @(posedge clk_i);
-    // @(posedge clk_i);
-    // @(posedge clk_i);
     control_in_monitor_struct.complete_data = complete_data_i;  //     
     control_in_monitor_struct.complete_instr = complete_instr_i;  //     
     control_in_monitor_struct.IR = IR_i;  //    [15:0] 
